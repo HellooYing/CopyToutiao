@@ -21,14 +21,15 @@ import java.util.*;
 
 @Controller
 public class IndexController {
-    private static final Logger logger= LoggerFactory.getLogger(LogAspect.class);
+    private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
     @Autowired
     private ToutiaoService toutiaoService;
+
     @RequestMapping(path = {"/"})
     @ResponseBody
     public String index(HttpSession session) {
         logger.info("Visit Index");
-        return"hi"+ toutiaoService.say()+session.getAttribute("msg");
+        return "hi" + toutiaoService.say() + session.getAttribute("msg");
     }
 
     @RequestMapping("/profile/{groupId}/{userId}")
@@ -80,37 +81,38 @@ public class IndexController {
                            @RequestParam(value = "key", defaultValue = "key") String key,
                            @RequestParam(value = "value", defaultValue = "value") String value,
                            HttpServletResponse response) {
-        response.addCookie(new Cookie(key,value));
-        response.addHeader(key,value);
-        return "mycookie:"+nc;
+        response.addCookie(new Cookie(key, value));
+        response.addHeader(key, value);
+        return "mycookie:" + nc;
     }
 
     @RequestMapping("/redirect/{code}")
-    public RedirectView redirect(@PathVariable("code") int code){
-        RedirectView red = new RedirectView("/",true);
-        if(code==301){
+    public RedirectView redirect(@PathVariable("code") int code) {
+        RedirectView red = new RedirectView("/", true);
+        if (code == 301) {
             red.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
         }
         return red;
     }
 
     @RequestMapping("/redirect")
-    public String redirect1(HttpSession session){
-        session.setAttribute("msg","jump from redirect");
+    public String redirect1(HttpSession session) {
+        session.setAttribute("msg", "jump from redirect");
         return "redirect:/";
     }
 
     @RequestMapping("/admin")
     @ResponseBody
-    public String admin(@RequestParam(value = "key",required = false) String key){
-        if("admin".equals(key)){
+    public String admin(@RequestParam(value = "key", required = false) String key) {
+        if ("admin".equals(key)) {
             return "hello admin";
         }
         throw new IllegalArgumentException("key wrong");
     }
+
     @ExceptionHandler()
     @ResponseBody
-    public String error(Exception e){
-        return "error: "+e.getMessage();
+    public String error(Exception e) {
+        return "error: " + e.getMessage();
     }
 }

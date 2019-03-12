@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ToutiaoService {
-    public String say(){
+    public String say() {
         return "hhh";
     }
 }
