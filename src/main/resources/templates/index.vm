@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<h1>Hello $!{name}</h1>
+    #foreach($color in $colors)
+    Color $!{foreach.index}/$!{foreach.count}:$!{color}
+    <br>
+    #end
+<br><br>
+    #foreach($key in $map.keySet())
+    Map $!{foreach.index}/$!{foreach.count}:$!{key} $map.get($key)
+    <br>
+    #end
+<br><br>
+    #foreach($kv in $map.entrySet())
+    Map2 $!{foreach.index}/$!{foreach.count}:$!{kv.key} $!{kv.value}
+    <br>
+    #end
+    $!{user.name}
+    $!{user.getName()}
+<br>
+Parse:#parse("header.vm")
+<br>
+Macro:
+    #macro(render_color, $color,$index)
+        $index,$color
+    #end
+    #foreach($color in $colors)
+        #render_color($color,$foreach.index)
+    <br>
+    #end
+    #set($hello="hi")
+    #set($helloworld1="$!{hello} world")
+    #set($helloworld2='$!{hello} world')
+
+    $!helloworld1
+    $!helloworld2
+    $!{colors.size()}
+</body>
+</html>
