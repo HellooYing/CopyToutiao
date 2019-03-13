@@ -1,6 +1,5 @@
 package com.toutiao.controller;
 
-import com.toutiao.ToutiaoApplication;
 import com.toutiao.aspect.LogAspect;
 import com.toutiao.model.User;
 import com.toutiao.service.ToutiaoService;
@@ -25,12 +24,12 @@ public class IndexController {
     @Autowired
     private ToutiaoService toutiaoService;
 
-    @RequestMapping(path = {"/"})
-    @ResponseBody
-    public String index(HttpSession session) {
-        logger.info("Visit Index");
-        return "hi" + toutiaoService.say() + session.getAttribute("msg");
-    }
+//    @RequestMapping(path = {"/"})
+//    @ResponseBody
+//    public String index(HttpSession session) {
+//        logger.info("Visit Index");
+//        return "hi" + toutiaoService.say() + session.getAttribute("msg");
+//    }
 
     @RequestMapping("/profile/{groupId}/{userId}")
     @ResponseBody
@@ -55,7 +54,10 @@ public class IndexController {
         model.addAttribute("user", new User("Marry"));
         return "index";
     }
-
+    @RequestMapping("/header")
+    public String head() {
+        return "header";
+    }
     @RequestMapping("/request")
     @ResponseBody
     public String request(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
