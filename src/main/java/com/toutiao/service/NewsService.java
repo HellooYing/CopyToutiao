@@ -7,11 +7,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Created by toutiao on 2016/7/2.
+ */
 @Service
 public class NewsService {
     @Autowired
     private NewsDAO newsDAO;
-    public List<News> getLastNews(int userId,int offset,int limit){
-        return newsDAO.selectByUserIdAndOffset(userId,offset,limit);
+
+    public List<News> getLatestNews(int userId, int offset, int limit) {
+        return newsDAO.selectByUserIdAndOffset(userId, offset, limit);
     }
 }

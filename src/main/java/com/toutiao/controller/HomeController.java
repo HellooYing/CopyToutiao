@@ -25,7 +25,7 @@ public class HomeController {
     UserService userService;
     @RequestMapping(path = {"/", "/index"}, method = {RequestMethod.GET, RequestMethod.POST})
     public String index(Model model) {
-        List<News> newsList=newsService.getLastNews(0,0,10);
+        List<News> newsList=newsService.getLatestNews(0,0,10);
         List<ViewObject> vos=new ArrayList<>();
         for(News news:newsList){
             ViewObject vo=new ViewObject();
