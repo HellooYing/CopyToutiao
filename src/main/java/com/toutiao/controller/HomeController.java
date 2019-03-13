@@ -23,9 +23,21 @@ public class HomeController {
     NewsService newsService;
     @Autowired
     UserService userService;
+
     @RequestMapping(path = {"/", "/index"}, method = {RequestMethod.GET, RequestMethod.POST})
     public String index(Model model) {
-        List<News> newsList=newsService.getLatestNews(0,0,10);
+        model.addAttribute("vos",getNews(0,0,10));
+        return "home";
+    }
+
+    @RequestMapping(path = {"/user/{userId}"}, method = {RequestMethod.GET, RequestMethod.POST})
+    public String user(Model model,@PathVariable("userId") int userId) {
+        model.addAttribute("vos",getNews(userId,0,10));
+        return "home";
+    }
+
+    private List<ViewObject> getNews(int userId,int offset,int limit){
+        List<News> newsList=newsService.getLatestNews(userId,offset,limit);
         List<ViewObject> vos=new ArrayList<>();
         for(News news:newsList){
             ViewObject vo=new ViewObject();
@@ -33,7 +45,6 @@ public class HomeController {
             vo.set("user",userService.getUser(news.getUserId()));
             vos.add(vo);
         }
-        model.addAttribute("vos",vos);
-        return "home";
+        return vos;
     }
 }
