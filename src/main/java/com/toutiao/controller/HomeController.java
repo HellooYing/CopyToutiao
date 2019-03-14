@@ -1,10 +1,13 @@
 package com.toutiao.controller;
 
+import com.toutiao.aspect.LogAspect;
 import com.toutiao.model.User;
 import com.toutiao.model.News;
 import com.toutiao.model.ViewObject;
 import com.toutiao.service.NewsService;
 import com.toutiao.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +22,7 @@ import java.util.List;
 
 @Controller
 public class HomeController {
+    private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
     @Autowired
     NewsService newsService;
     @Autowired
