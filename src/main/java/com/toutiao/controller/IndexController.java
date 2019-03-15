@@ -58,6 +58,7 @@ public class IndexController {
     public String head() {
         return "header";
     }
+
     @RequestMapping("/request")
     @ResponseBody
     public String request(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
