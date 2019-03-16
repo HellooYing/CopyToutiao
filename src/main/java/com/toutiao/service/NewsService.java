@@ -39,4 +39,12 @@ public class NewsService {
     public List<News> getLatestNews(int userId, int offset, int limit) {
         return newsDAO.selectByUserIdAndOffset(userId, offset, limit);
     }
+    public int addNews(News news) {
+        newsDAO.addNews(news);
+        return news.getId();
+    }
+
+    public News getById(int newsId) {
+        return newsDAO.getById(newsId);
+    }
 }

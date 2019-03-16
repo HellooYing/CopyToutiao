@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
+CREATE TABLE `user`(
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL DEFAULT '',
   `password` varchar(128) NOT NULL DEFAULT '',
@@ -30,4 +30,4 @@ CREATE TABLE `login_ticket` (
   `expired` DATETIME NOT NULL,
   `status` INT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `ticket_UNIQUE` (`ticket` ASC));
+  UNIQUE INDEX `ticket_UNIQUE` (`ticket` ASC))ENGINE=InnoDB DEFAULT CHARSET=utf8;

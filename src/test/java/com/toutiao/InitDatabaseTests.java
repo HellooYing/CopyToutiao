@@ -45,7 +45,7 @@ public class InitDatabaseTests {
             News news=new News();
             news.setCommentCount(i);
             Date date=new Date();
-            date.setTime(date.getTime()+1000*3600*2*i);
+            date.setTime(date.getTime()+1000*3600*5*i);
             news.setCreatedDate(date);
             news.setImage(String.format("http://images.nowcoder.com/head/%dt.png",random.nextInt(1000)));
             news.setLikeCount(i+100);
