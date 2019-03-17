@@ -1,25 +1,26 @@
 package com.toutiao.controller;
 
 import com.toutiao.aspect.LogAspect;
-import com.toutiao.model.HostHolder;
-import com.toutiao.model.News;
+import com.toutiao.model.*;
+import com.toutiao.service.CommentService;
 import com.toutiao.service.NewsService;
+import com.toutiao.service.UserService;
 import com.toutiao.util.ToutiaoUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.StreamUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class NewsController {
@@ -27,7 +28,68 @@ public class NewsController {
     @Autowired
     NewsService newsService;
     @Autowired
+    UserService userService;
+    @Autowired
+    CommentService commentService;
+    @Autowired
     HostHolder hostHolder;
+
+    @RequestMapping(path = {"/del"},method = {RequestMethod.GET})
+    public String addComment(@RequestParam(value = "commentId") int commentId,
+                             @RequestParam(value ="newsId") int newsId){
+        try {
+            commentService.deleteComment(commentId);
+            int count=commentService.getCommentCount(newsId,EntityType.ENTITY_NEWS);
+            newsService.updateCommentCount(newsId,count);
+        }
+        catch (Exception e) {
+            logger.error("删除评论错误" + e.getMessage());
+        }
+        return "redirect:/news/" + String.valueOf(newsId);
+    }
+
+    @RequestMapping(path = {"/addComment"},method = {RequestMethod.POST})
+    public String addComment(@RequestParam("content") String content,
+                             @RequestParam("newsId") int newsId){
+        try {
+        Comment comment=new Comment();
+        comment.setContent(content);
+        comment.setCreatedDate(new Date());
+        comment.setEntityId(newsId);
+        comment.setEntityType(EntityType.ENTITY_NEWS);
+        comment.setStatus(0);
+        comment.setUserId(hostHolder.getUser().getId());
+        commentService.addComment(comment);
+        int count=commentService.getCommentCount(comment.getEntityId(),EntityType.ENTITY_NEWS);
+        newsService.updateCommentCount(comment.getEntityId(),count);
+        }
+        catch (Exception e) {
+            logger.error("提交评论错误" + e.getMessage());
+        }
+        return "redirect:/news/" + String.valueOf(newsId);
+    }
+
+    @RequestMapping(path = {"/news/{newsId}"},method = {RequestMethod.GET})
+    public String newsDetail(Model model, @PathVariable("newsId") int newsId) {
+        try{
+            News news=newsService.getById(newsId);
+            model.addAttribute("news",news);
+            model.addAttribute("owner",userService.getUser(news.getUserId()));//发表news的人
+            List<Comment> comments=commentService.getCommentsByEntity(news.getId(), EntityType.ENTITY_NEWS);
+            List<ViewObject> commentVOs = new ArrayList<ViewObject>();
+            for(Comment comment:comments){
+                ViewObject commentVO=new ViewObject();
+                commentVO.set("comment",comment);//评论
+                commentVO.set("user",userService.getUser(comment.getUserId()));//发表评论的人
+                commentVOs.add(commentVO);
+            }
+            model.addAttribute("comments",commentVOs);
+        }
+        catch(Exception e){
+            logger.error("获取资讯明细错误" + e.getMessage());
+        }
+        return "detail";
+    }
 
     @RequestMapping(path = {"/uploadImage"},method = {RequestMethod.POST})
     @ResponseBody

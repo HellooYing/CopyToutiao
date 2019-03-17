@@ -1,5 +1,6 @@
 package com.toutiao.service;
 
+import com.toutiao.dao.CommentDAO;
 import com.toutiao.dao.NewsDAO;
 import com.toutiao.model.News;
 import com.toutiao.util.ToutiaoUtil;
@@ -21,6 +22,12 @@ import java.util.UUID;
 public class NewsService {
     @Autowired
     private NewsDAO newsDAO;
+    @Autowired
+    private CommentDAO commentDAO;
+
+    public int updateCommentCount(int id,int count){
+        return newsDAO.updateCommentCount(id,count);
+    }
 
     public String saveImage(MultipartFile file) throws IOException {
         int dotPos=file.getOriginalFilename().lastIndexOf(".");
@@ -47,4 +54,5 @@ public class NewsService {
     public News getById(int newsId) {
         return newsDAO.getById(newsId);
     }
+
 }
