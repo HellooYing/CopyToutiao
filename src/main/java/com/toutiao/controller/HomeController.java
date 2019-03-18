@@ -1,10 +1,8 @@
 package com.toutiao.controller;
 
 import com.toutiao.aspect.LogAspect;
-import com.toutiao.model.HostHolder;
-import com.toutiao.model.User;
-import com.toutiao.model.News;
-import com.toutiao.model.ViewObject;
+import com.toutiao.model.*;
+import com.toutiao.service.LikeService;
 import com.toutiao.service.NewsService;
 import com.toutiao.service.UserService;
 import org.slf4j.Logger;
@@ -27,6 +25,8 @@ public class HomeController {
     UserService userService;
     @Autowired
     HostHolder hostHolder;
+    @Autowired
+    LikeService likeService;
 
     @RequestMapping(path = {"/", "/index"}, method = {RequestMethod.GET, RequestMethod.POST})
     public String index(Model model) {
@@ -49,6 +49,11 @@ public class HomeController {
             ViewObject vo=new ViewObject();
             vo.set("news",news);
             vo.set("user",userService.getUser(news.getUserId()));
+            if(hostHolder.getUser()!=null){
+                int likeStatus=likeService.getLikeStatus(hostHolder.getUser().getId(), EntityType.ENTITY_NEWS,news.getId());
+                vo.set("like",likeStatus);
+            }
+            else vo.set("like",0);
             vos.add(vo);
         }
         return vos;

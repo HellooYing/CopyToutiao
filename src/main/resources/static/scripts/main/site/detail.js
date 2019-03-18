@@ -53,7 +53,7 @@
         var oEl = $(oEvent.currentTarget);
         var sId = $.trim(oEl.attr('data-id'));
         // 已经操作过 || 不存在Id || 正在提交 ，则忽略
-        if (!sId || that.actioning) {
+        if (oEl.hasClass('pressed') || !sId || that.actioning) {
             return;
         }
         that.actioning = true;
@@ -61,8 +61,7 @@
             newsId: sId,
             call: function (oResult) {
                 oEl.find('span.count').html(oResult.msg);
-                if(oEl.hasClass('pressed')) oEl.removeClass('pressed');
-                else oEl.addClass('pressed')
+                oEl.addClass('pressed');
                 oEl.parent().find('.click-dislike').removeClass('pressed');
             },
             error: function () {
@@ -78,16 +77,15 @@
         var that = this;
         var oEl = $(oEvent.currentTarget);
         var sId = $.trim(oEl.attr('data-id'));
-        // 已经操作过 || 不存在Id || 正在提交 ，则忽略(oEl.hasClass('pressed') ||)
-        if ( !sId || that.actioning) {
+        // 已经操作过 || 不存在Id || 正在提交 ，则忽略
+        if (oEl.hasClass('pressed') || !sId || that.actioning) {
             return;
         }
         that.actioning = true;
         ActionUtil.dislike({
             newsId: sId,
             call: function (oResult) {
-                if(oEl.hasClass('pressed')) oEl.removeClass('pressed');
-                else oEl.addClass('pressed')
+                oEl.addClass('pressed');
                 var oLikeBtn = oEl.parent().find('.click-like');
                 oLikeBtn.removeClass('pressed');
                 oLikeBtn.find('span.count').html(oResult.msg);
