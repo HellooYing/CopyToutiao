@@ -1,5 +1,8 @@
 package com.toutiao.controller;
 
+import com.toutiao.async.EventModel;
+import com.toutiao.async.EventProducer;
+import com.toutiao.async.EventType;
 import com.toutiao.model.EntityType;
 import com.toutiao.model.HostHolder;
 import com.toutiao.model.News;
@@ -21,12 +24,16 @@ public class LikeController {
     HostHolder hostHolder;
     @Autowired
     NewsService newsService;
+    @Autowired
+    EventProducer eventProducer;
     @RequestMapping(path = {"/like"},method = {RequestMethod.GET,RequestMethod.POST})
     @ResponseBody
     public String like(@Param("newId") int newsId){
-        System.out.println("likeController");
         long likeCount=likeService.like(hostHolder.getUser().getId(), EntityType.ENTITY_NEWS,newsId);
         newsService.updateLikeCount(newsId,(int)likeCount);
+        eventProducer.fireEvent(new EventModel(EventType.LIKE)
+                .setActorId(hostHolder.getUser().getId()).setEntityId(newsId)
+                .setEntityOwnerId(newsService.getById(newsId).getUserId()));
         return ToutiaoUtil.getJSONString(0,String.valueOf(likeCount));
     }
     @RequestMapping(path = {"/dislike"},method = {RequestMethod.GET,RequestMethod.POST})

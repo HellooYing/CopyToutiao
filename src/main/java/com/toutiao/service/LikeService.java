@@ -18,7 +18,6 @@ public class LikeService {
         return jedisAdapter.sismenber(dislikeKey,String.valueOf(userId))?-1:0;
     }
     public long like(int userId,int entityType,int entityId){
-        System.out.println("likeService");
         String likeKey=RedisKeyUtil.getLikeKey(entityId,entityType);
         String dislikeKey=RedisKeyUtil.getDislikeKey(entityId,entityType);
         if(jedisAdapter.sismenber(likeKey,String.valueOf(userId))){

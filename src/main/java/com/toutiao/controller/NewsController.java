@@ -24,7 +24,7 @@ import java.util.List;
 
 @Controller
 public class NewsController {
-    private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
+    private static final Logger logger = LoggerFactory.getLogger(NewsController.class);
     @Autowired
     NewsService newsService;
     @Autowired

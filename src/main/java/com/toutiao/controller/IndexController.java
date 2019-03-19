@@ -20,7 +20,7 @@ import java.util.*;
 
 @Controller
 public class IndexController {
-    private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
+    private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
     @Autowired
     private ToutiaoService toutiaoService;
 
