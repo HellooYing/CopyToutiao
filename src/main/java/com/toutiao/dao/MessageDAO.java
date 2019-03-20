@@ -1,10 +1,7 @@
 package com.toutiao.dao;
 
 import com.toutiao.model.Message;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -31,4 +28,6 @@ public interface MessageDAO {
     @Select({"select ", INSERT_FIELDS, " ,count(id) as id from ( select * from ", TABLE_NAME, " where from_id=#{userId} or to_id=#{userId} order by id desc) tt group by conversation_id  order by created_date desc limit #{offset}, #{limit}"})
     List<Message> getConversationList(@Param("userId") int userId,
                                       @Param("offset") int offset, @Param("limit") int limit);
+    @Update({"update ",TABLE_NAME," set has_read=1 where to_id=#{userId} and conversation_id=#{conversationId}"})
+    int updateUnreadCount(@Param("userId") int userId, @Param("conversationId") String conversationId);
 }

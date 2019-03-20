@@ -1,6 +1,9 @@
 package com.toutiao.controller;
 
 import com.toutiao.aspect.LogAspect;
+import com.toutiao.async.EventModel;
+import com.toutiao.async.EventProducer;
+import com.toutiao.async.EventType;
 import com.toutiao.model.News;
 import com.toutiao.model.ViewObject;
 import com.toutiao.service.NewsService;
@@ -26,6 +29,8 @@ public class LoginController {
     NewsService newsService;
     @Autowired
     UserService userService;
+    @Autowired
+    EventProducer eventProducer;
 
     @RequestMapping(path = {"/reg"}, method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
@@ -58,6 +63,11 @@ public class LoginController {
             Map<String,Object> map=userService.login(username,password);
             if(map.containsKey("ticket")){
                 addCookie(map,remember,response);
+                EventModel eventModel=new EventModel(EventType.LOGIN);
+                eventModel.setActorId((int) map.get("userId"))
+                        .setExt("username", "2669612599")
+                        .setExt("to", "2213073589@qq.com");
+                eventProducer.fireEvent(eventModel);
                 return ToutiaoUtil.getJSONString(0,"登录成功");
             }
             else{

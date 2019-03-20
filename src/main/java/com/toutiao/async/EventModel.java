@@ -32,6 +32,7 @@ public class EventModel {
 
     public EventModel setActorId(int actorId) {
         this.actorId = actorId;
+
         return this;
     }
 
@@ -61,7 +62,14 @@ public class EventModel {
         this.entityOwnerId = entityOwnerId;
         return this;
     }
+    public String getExt(String name) {
+        return exts.get(name);
+    }
 
+    public EventModel setExt(String name, String value) {
+        exts.put(name, value);
+        return this;
+    }
     public Map<String, String> getExts() {
         return exts;
     }

@@ -30,14 +30,10 @@ public class EventConsumer implements InitializingBean, ApplicationContextAware 
     public void afterPropertiesSet() throws Exception {
         //初始化，先获取所有种handler，handler里的内容包括它会被哪些事件使用，把这些信息加进config
         Map<String,EventHandler> beans = applicationContext.getBeansOfType(EventHandler.class);
-        System.out.println(beans.toString());
         if(beans!=null){
             for(Map.Entry<String,EventHandler> entry:beans.entrySet()){
                 List<EventType> types=entry.getValue().getSupportEventTypes();
-                System.out.println("0"+types.toString());
                 for(EventType type:types){
-
-                    System.out.println("1"+config.toString());
                     if(!config.containsKey(type)){
                         config.put(type,new ArrayList<EventHandler>());
                     }
@@ -47,7 +43,6 @@ public class EventConsumer implements InitializingBean, ApplicationContextAware 
                 }
             }
         }
-        System.out.println(config.toString());
         //启动线程
         Thread thread=new Thread(new Runnable() {
             @Override
@@ -58,7 +53,6 @@ public class EventConsumer implements InitializingBean, ApplicationContextAware 
                     for(String message:messages){
                         if(message.equals(key)) continue;
                         EventModel eventModel= JSON.parseObject(message,EventModel.class);
-
                         if(!config.containsKey(eventModel.getType())){
                             logger.error("不能识别的事件");
                             continue;

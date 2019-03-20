@@ -48,6 +48,7 @@ public class MessageController {
                 messages.add(vo);
             }
             model.addAttribute("messages", messages);
+            messageService.updateHasRead(hostHolder.getUser().getId(),conversationId);
             return "letterDetail";
         } catch (Exception e) {
             logger.error("获取站内信列表失败" + e.getMessage());
@@ -70,6 +71,7 @@ public class MessageController {
                 vo.set("targetId", targetId);
                 vo.set("totalCount", msg.getId());
                 vo.set("unreadCount", messageService.getUnreadCount(localUserId, msg.getConversationId()));
+
                 conversations.add(vo);
             }
             model.addAttribute("conversations", conversations);

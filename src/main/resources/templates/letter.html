@@ -18,15 +18,15 @@
                     </div>
                     <div class="chat-headbox">
                         <span class="msg-num">
-                            $!{conversation.unread}
+                            $!{conversation.unreadCount}
                         </span>
                         <a class="list-head" href="/user/$!{conversation.user.id}">
-                            <img alt="头像" src="$!{conversation.user.headUrl}">
+                            <img alt="头像" src="$!{conversation.headUrl}">
                         </a>
                     </div>
                     <div class="letter-detail">
-                        <a title="$!{conversation.user.name}" class="letter-name level-color-1">
-                            $!{conversation.user.name}
+                        <a title="$!{conversation.userName}" class="letter-name level-color-1">
+                            $!{conversation.userName}
                         </a>
                         <p class="letter-brief">
                             <a href="/msg/detail?conversationId=$!{conversation.conversation.conversationId}">
