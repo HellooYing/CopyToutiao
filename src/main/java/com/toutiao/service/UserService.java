@@ -81,6 +81,9 @@ public class UserService {
     public User getUser(int id) {
         return userDAO.selectById(id);
     }
+    public List<User> getAll() {
+        return userDAO.selectAll();
+    }
 
     private String addLoginTicket(int userId) {
         LoginTicket ticket = new LoginTicket();

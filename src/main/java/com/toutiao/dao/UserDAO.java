@@ -3,6 +3,8 @@ package com.toutiao.dao;
 import com.toutiao.model.User;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 /**
  * Created by nowcoder on 2016/7/2.
  */
@@ -18,6 +20,9 @@ public interface UserDAO {
 
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where id=#{id}"})
     User selectById(int id);
+
+    @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME})
+    List<User> selectAll();
 
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where name=#{name}"})
     User selectByName(String name);

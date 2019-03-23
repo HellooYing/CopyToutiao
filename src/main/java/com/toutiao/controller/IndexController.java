@@ -3,6 +3,7 @@ package com.toutiao.controller;
 import com.toutiao.aspect.LogAspect;
 import com.toutiao.model.User;
 import com.toutiao.service.ToutiaoService;
+import com.toutiao.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,8 @@ public class IndexController {
     private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
     @Autowired
     private ToutiaoService toutiaoService;
+    @Autowired
+    private UserService userService;
 
 //    @RequestMapping(path = {"/"})
 //    @ResponseBody
@@ -39,6 +42,25 @@ public class IndexController {
                           @RequestParam(value = "key", defaultValue = "mcq") String key
     ) {
         return String.format("{%s},{%d},{%d},{%s}", groupId, userId, type, key);
+    }
+    @RequestMapping("/choujiang")
+    public String choujiang() {
+        return "choujiang";
+    }
+
+    @RequestMapping("/getUser")
+    @ResponseBody
+    public Object getUser(HttpServletRequest request,HttpServletResponse response){
+        List<User> a=userService.getAll();
+        Map<String,Object> map = new HashMap<>();
+//        Enumeration<String> headNames = request.getHeaderNames();
+//        while(headNames.hasMoreElements()) {
+//            String name = headNames.nextElement();
+//            System.out.println(request.getHeader(name));
+//        }
+        System.out.println(a.get(0).getId());
+        map.put("message",a);
+        return map;
     }
 
     @RequestMapping("/hello")
