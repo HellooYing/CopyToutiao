@@ -3,6 +3,7 @@ package com.toutiao.controller;
 import com.toutiao.aspect.LogAspect;
 import com.toutiao.model.*;
 import com.toutiao.service.CommentService;
+import com.toutiao.service.LikeService;
 import com.toutiao.service.NewsService;
 import com.toutiao.service.UserService;
 import com.toutiao.util.ToutiaoUtil;
@@ -33,6 +34,8 @@ public class NewsController {
     CommentService commentService;
     @Autowired
     HostHolder hostHolder;
+    @Autowired
+    LikeService likeService;
 
     @RequestMapping(path = {"/del"},method = {RequestMethod.GET})
     public String addComment(@RequestParam(value = "commentId") int commentId,
@@ -75,6 +78,8 @@ public class NewsController {
             News news=newsService.getById(newsId);
             model.addAttribute("news",news);
             model.addAttribute("owner",userService.getUser(news.getUserId()));//发表news的人
+            int likeStatus=likeService.getLikeStatus(hostHolder.getUser().getId(), EntityType.ENTITY_NEWS,news.getId());
+            model.addAttribute("like",likeStatus);
             List<Comment> comments=commentService.getCommentsByEntity(news.getId(), EntityType.ENTITY_NEWS);
             List<ViewObject> commentVOs = new ArrayList<ViewObject>();
             for(Comment comment:comments){

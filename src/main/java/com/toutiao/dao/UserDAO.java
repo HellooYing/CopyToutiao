@@ -21,7 +21,7 @@ public interface UserDAO {
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where id=#{id}"})
     User selectById(int id);
 
-    @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME})
+    @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where id<>13"})
     List<User> selectAll();
 
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME, " where name=#{name}"})

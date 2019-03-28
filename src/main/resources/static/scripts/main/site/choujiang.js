@@ -3,6 +3,7 @@ var g_PersonCount = 500;//参加抽奖人数
 var g_Timer;
 var running = false;
 var users;
+
 $.ajax({url:"/getUser",success:function(result){
 		users=result.message
 	}});

@@ -6,12 +6,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class MultiThread {
     public static void main(String[] argv) {
         //testThread();
-        //testSynchronized();
+        testSynchronized();
         //testBlockingQueue();
         //testAtomic();
         //testThreadLocal();
         //testExecutor();
-        testFutrue();
+        //testFutrue();
     }
 
     static void testFutrue(){
@@ -174,6 +174,8 @@ public class MultiThread {
 
 
     private static Object obj=new Object();
+    private static Object obj2=new Object();
+
 
     private static void testSynchronized1(){
         synchronized (obj){
