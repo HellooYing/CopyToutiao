@@ -16,12 +16,10 @@ public class MessageService {
     }
 
     public List<Message> getConversationList(int userId, int offset, int limit) {
-        // conversation的总条数存在id里
         return messageDAO.getConversationList(userId, offset, limit);
     }
 
     public List<Message> getConversationDetail(String conversationId, int offset, int limit) {
-        // conversation的总条数存在id里
         return messageDAO.getConversationDetail(conversationId, offset, limit);
     }
 

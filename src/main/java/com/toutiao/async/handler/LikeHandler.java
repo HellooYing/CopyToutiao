@@ -34,9 +34,10 @@ public class LikeHandler implements EventHandler {
                 newsService.getById(eventModel.getEntityId()).getTitle()+
                 ",网址为："+ ToutiaoUtil.TOUTIAO_DOMAIN+"news/"+eventModel.getEntityId());
         int fromId=13;
-        message.setFromId(0);
+        message.setFromId(eventModel.getActorId());
         //message.setToId(eventModel.getEntityOwnerId());
-        int toId=eventModel.getActorId();
+        //int toId=eventModel.getActorId();
+        int toId=eventModel.getEntityOwnerId();
         message.setToId(toId);
         message.setCreatedDate(new Date());
         message.setConversationId(fromId < toId ? String.format("%d_%d", fromId, toId) :
