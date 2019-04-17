@@ -41,6 +41,7 @@ public class IndexController {
                           @RequestParam(value = "type", defaultValue = "1") int type,
                           @RequestParam(value = "key", defaultValue = "mcq") String key
     ) {
+        
         return String.format("{%s},{%d},{%d},{%s}", groupId, userId, type, key);
     }
     @RequestMapping("/choujiang")

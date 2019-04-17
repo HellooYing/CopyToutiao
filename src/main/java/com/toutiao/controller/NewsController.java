@@ -38,7 +38,7 @@ public class NewsController {
     LikeService likeService;
 
     @RequestMapping(path = {"/del"},method = {RequestMethod.GET})
-    public String addComment(@RequestParam(value = "commentId") int commentId,
+    public String delComment(@RequestParam(value = "commentId") int commentId,
                              @RequestParam(value ="newsId") int newsId){
         try {
             commentService.deleteComment(commentId);

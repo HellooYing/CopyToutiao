@@ -14,7 +14,7 @@
                         #set($cur_date = $date.format('yyyy-MM-dd', $vo.news.createdDate))
                     <h3 class="date">
                         <i class="fa icon-calendar"></i>
-                        <span>头条资讯 &nbsp; $date.format('yyyy-MM-dd', $vo.news.createdDate)</span>
+                        <span style="font-size:30px">头条资讯 &nbsp; $date.format('yyyy-MM-dd', $vo.news.createdDate)</span>
                     </h3>
 
                     <div class="posts">
@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="content-main">
                                     <h3 class="title">
-                                        <a target="_blank" rel="external nofollow" href="/news/$!{vo.news.id}">$!{vo.news.title}</a>
+                                        <a target="_blank" rel="external nofollow" href="/news/$!{vo.news.id}" style="font-size:22px">$!{vo.news.title}</a>
                                     </h3>
                                     <div class="meta">
                                         $!{vo.news.link}
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
 
-                            <div class="subject-name">来自 <a href="/user/$!{vo.user.id}/">$!{vo.user.name}</a></div>
+                            <div class="subject-name" style="font-size:15px;">来自 <a style="font-size:15px;" href="/user/$!{vo.user.id}/">$!{vo.user.name}</a></div>
                         </div>
 
                     #if ($foreach.count == $vos.size()) ##最后有个元素要收尾
