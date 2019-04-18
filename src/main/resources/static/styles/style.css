@@ -5127,6 +5127,7 @@ a.text-#000000:hover {
 }
 .content-main {
   margin-left: 120px;
+  overflow:hidden;
 }
 /* line 89, /var/www/prod/v2.toutiao.io/app/assets/stylesheets/posts.scss */
 .post .title {
