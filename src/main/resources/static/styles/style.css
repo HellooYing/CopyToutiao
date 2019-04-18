@@ -1,8 +1,3 @@
-/*
-
-*/
-
-
 html {
   background-color: #f0f3f4;
 }
@@ -135,7 +130,7 @@ a:hover .caret-white {
 .progress,
 .progress-bar {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .progress-bar-primary {
@@ -191,7 +186,7 @@ a:hover .caret-white {
 .form-control,
 .form-control:focus {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .form-control:focus {
@@ -528,7 +523,7 @@ pre {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .dropdown-menu.pull-left {
@@ -881,8 +876,8 @@ body {
 }
 
 .navbar-brand img {
-  // max-height: 20px;
-  // margin-top: -4px;
+// max-height: 20px;
+// margin-top: -4px;
   vertical-align: middle;
 }
 
@@ -1067,7 +1062,7 @@ body {
   .app.container {
     width: 750px;
     -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
   }
   .app.container .app-aside {
     overflow-x: hidden;
@@ -1113,7 +1108,7 @@ body {
   overflow: hidden;
   opacity: 0;
   -webkit-transition: all 0.2s ease-in-out 0s;
-          transition: all 0.2s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
 }
 
 .active .nav-sub,
@@ -1150,7 +1145,7 @@ body {
   font-weight: normal;
   text-transform: none;
   -webkit-transition: background-color 0.2s ease-in-out 0s;
-          transition: background-color 0.2s ease-in-out 0s;
+  transition: background-color 0.2s ease-in-out 0s;
 }
 
 .navi ul.nav li a .badge,
@@ -1205,7 +1200,7 @@ body {
     line-height: 50px;
     border: none !important;
     -webkit-transition: margin-top 0.2s;
-            transition: margin-top 0.2s;
+    transition: margin-top 0.2s;
   }
   .app-aside-folded .navi > ul > li > a i b {
     left: 0 !important;
@@ -1225,7 +1220,7 @@ body {
     width: 200px;
     height: 0 !important;
     -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
   .app-aside-folded .navi li li a {
     padding-left: 20px !important;
@@ -1262,9 +1257,9 @@ body {
   }
   .app-content {
     -webkit-transition: -webkit-transform 0.2s ease;
-       -moz-transition: -moz-transform 0.2s ease;
-         -o-transition: -o-transform 0.2s ease;
-            transition: transform 0.2s ease;
+    -moz-transition: -moz-transform 0.2s ease;
+    -o-transition: -o-transform 0.2s ease;
+    transition: transform 0.2s ease;
   }
   .off-screen {
     position: absolute;
@@ -1290,14 +1285,14 @@ body {
     overflow: hidden;
     background-color: #f0f3f4;
     -webkit-transform: translate3d(75%, 0, 0px);
-            transform: translate3d(75%, 0, 0px);
+    transform: translate3d(75%, 0, 0px);
     -webkit-transition: -webkit-transform 0.2s ease;
-       -moz-transition: -moz-transform 0.2s ease;
-         -o-transition: -o-transform 0.2s ease;
-            transition: transform 0.2s ease;
+    -moz-transition: -moz-transform 0.2s ease;
+    -o-transition: -o-transform 0.2s ease;
+    transition: transform 0.2s ease;
     -webkit-backface-visibility: hidden;
-       -moz-backface-visibility: hidden;
-            backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
   .off-screen + * .off-screen-toggle {
     position: absolute;
@@ -1313,7 +1308,7 @@ body {
   }
   .off-screen.pull-right + * {
     -webkit-transform: translate3d(-75%, 0, 0px);
-            transform: translate3d(-75%, 0, 0px);
+    transform: translate3d(-75%, 0, 0px);
   }
 }
 
@@ -1399,8 +1394,8 @@ body {
   .app-aside-dock .app-aside .navi > ul > li > a > span.pull-right i.text {
     line-height: 14px;
     -webkit-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
   }
   .app-aside-dock .app-aside .navi > ul > li > a > span {
     display: block;
@@ -1415,7 +1410,7 @@ body {
     width: 200px;
     height: auto !important;
     -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
   .app-aside-dock .app-aside .navi > ul > li .nav-sub-header {
     display: none !important;
@@ -1682,7 +1677,7 @@ body {
   border-color: #dee5e7;
   border-bottom-color: #d8e1e3;
   -webkit-box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
-          box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+  box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
 }
 
 .btn-default:hover,
@@ -2134,7 +2129,7 @@ fieldset[disabled] .btn-black.active {
   text-align: center;
   vertical-align: middle;
   -webkit-transition: font-size 0.2s;
-          transition: font-size 0.2s;
+  transition: font-size 0.2s;
 }
 
 .list-icon div {
@@ -2153,7 +2148,7 @@ fieldset[disabled] .btn-black.active {
   z-index: 1050;
   width: 240px;
   -webkit-transition: right 0.2s;
-          transition: right 0.2s;
+  transition: right 0.2s;
 }
 
 .settings.active {
@@ -2412,7 +2407,7 @@ fieldset[disabled] .btn-black.active {
   border-radius: 30px;
   content: "";
   -webkit-transition: all 0.2s;
-          transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 .i-switch i:after {
@@ -2424,9 +2419,9 @@ fieldset[disabled] .btn-black.active {
   border-radius: 50%;
   content: "";
   -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
-          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
   -webkit-transition: margin-left 0.3s;
-          transition: margin-left 0.3s;
+  transition: margin-left 0.3s;
 }
 
 .i-switch-md {
@@ -2520,7 +2515,7 @@ fieldset[disabled] .i-checks input + i:before {
   background-color: transparent;
   content: "";
   -webkit-transition: all 0.2s;
-          transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 .i-checks > span {
@@ -2581,11 +2576,11 @@ fieldset[disabled] .i-checks input + i:before {
   background-color: rgba(0, 0, 0, 0.8) !important;
   border: solid 1px #000 !important;
   -webkit-border-radius: 3px;
-     -moz-border-radius: 3px;
-          border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   -webkit-box-sizing: content-box;
-     -moz-box-sizing: content-box;
-          box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
 }
 
 .easyPieChart {
@@ -2624,8 +2619,8 @@ fieldset[disabled] .i-checks input + i:before {
   background-color: rgba(0, 0, 0, 0.8);
   border: solid 1px #000 !important;
   -webkit-border-radius: 3px;
-     -moz-border-radius: 3px;
-          border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
 .legendColorBox > div {
@@ -2713,92 +2708,92 @@ fieldset[disabled] .i-checks input + i:before {
 
 .fade-in-right-big.ng-enter {
   -webkit-animation: fadeInRightBig 0.5s;
-          animation: fadeInRightBig 0.5s;
+  animation: fadeInRightBig 0.5s;
 }
 
 .fade-in-right-big.ng-leave {
   -webkit-animation: fadeOutLeftBig 0.5s;
-          animation: fadeOutLeftBig 0.5s;
+  animation: fadeOutLeftBig 0.5s;
 }
 
 .fade-in-left-big.ng-enter {
   -webkit-animation: fadeInLeftBig 0.5s;
-          animation: fadeInLeftBig 0.5s;
+  animation: fadeInLeftBig 0.5s;
 }
 
 .fade-in-left-big.ng-leave {
   -webkit-animation: fadeOutRightBig 0.5s;
-          animation: fadeOutRightBig 0.5s;
+  animation: fadeOutRightBig 0.5s;
 }
 
 .fade-in-up-big.ng-enter {
   -webkit-animation: fadeInUpBig 0.5s;
-          animation: fadeInUpBig 0.5s;
+  animation: fadeInUpBig 0.5s;
 }
 
 .fade-in-up-big.ng-leave {
   -webkit-animation: fadeOutUpBig 0.5s;
-          animation: fadeOutUpBig 0.5s;
+  animation: fadeOutUpBig 0.5s;
 }
 
 .fade-in-down-big.ng-enter {
   -webkit-animation: fadeInDownBig 0.5s;
-          animation: fadeInDownBig 0.5s;
+  animation: fadeInDownBig 0.5s;
 }
 
 .fade-in-down-big.ng-leave {
   -webkit-animation: fadeOutDownBig 0.5s;
-          animation: fadeOutDownBig 0.5s;
+  animation: fadeOutDownBig 0.5s;
 }
 
 .fade-in.ng-enter {
   -webkit-animation: fadeIn 0.5s;
-          animation: fadeIn 0.5s;
+  animation: fadeIn 0.5s;
 }
 
 .fade-in.ng-leave {
   -webkit-animation: fadeOut 0.5s;
-          animation: fadeOut 0.5s;
+  animation: fadeOut 0.5s;
 }
 
 .fade-in-right.ng-enter {
   -webkit-animation: fadeInRight 0.5s;
-          animation: fadeInRight 0.5s;
+  animation: fadeInRight 0.5s;
 }
 
 .fade-in-right.ng-leave {
   -webkit-animation: fadeOutLeft 0.5s;
-          animation: fadeOutLeft 0.5s;
+  animation: fadeOutLeft 0.5s;
 }
 
 .fade-in-left.ng-enter {
   -webkit-animation: fadeInLeft 0.5s;
-          animation: fadeInLeft 0.5s;
+  animation: fadeInLeft 0.5s;
 }
 
 .fade-in-left.ng-leave {
   -webkit-animation: fadeOutRight 0.5s;
-          animation: fadeOutRight 0.5s;
+  animation: fadeOutRight 0.5s;
 }
 
 .fade-in-up.ng-enter {
   -webkit-animation: fadeInUp 0.5s;
-          animation: fadeInUp 0.5s;
+  animation: fadeInUp 0.5s;
 }
 
 .fade-in-up.ng-leave {
   -webkit-animation: fadeOutUp 0.5s;
-          animation: fadeOutUp 0.5s;
+  animation: fadeOutUp 0.5s;
 }
 
 .fade-in-down.ng-enter {
   -webkit-animation: fadeInDown 0.5s;
-          animation: fadeInDown 0.5s;
+  animation: fadeInDown 0.5s;
 }
 
 .fade-in-down.ng-leave {
   -webkit-animation: fadeOutDown 0.5s;
-          animation: fadeOutDown 0.5s;
+  animation: fadeOutDown 0.5s;
 }
 
 .bg-gd {
@@ -3912,10 +3907,10 @@ a.text-#000000:hover {
 
 .no-select {
   -webkit-user-select: none;
-   -khtml-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   -webkit-touch-callout: none;
 }
 
@@ -4036,7 +4031,7 @@ a.text-#000000:hover {
 
 .no-shadow {
   -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .wrapper-xs {
@@ -4773,7 +4768,7 @@ a.text-#000000:hover {
 
 .hover-rotate {
   -webkit-transition: all 0.2s ease-in-out 0.1s;
-          transition: all 0.2s ease-in-out 0.1s;
+  transition: all 0.2s ease-in-out 0.1s;
 }
 
 .hover-anchor:hover > .hover-action,
@@ -4786,8 +4781,8 @@ a.text-#000000:hover {
 .hover-anchor:focus > .hover-rotate,
 .hover-anchor:active > .hover-rotate {
   -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-          transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .backdrop {
@@ -4910,20 +4905,20 @@ a.text-#000000:hover {
 
 .butterbar.active {
   -webkit-animation: changebar 2.25s infinite 0.75s;
-     -moz-animation: changebar 2.25s infinite 0.75s;
-          animation: changebar 2.25s infinite 0.75s;
+  -moz-animation: changebar 2.25s infinite 0.75s;
+  animation: changebar 2.25s infinite 0.75s;
 }
 
 .butterbar.active .bar {
   -webkit-animation: changebar 2.25s infinite;
-     -moz-animation: changebar 2.25s infinite;
-          animation: changebar 2.25s infinite;
+  -moz-animation: changebar 2.25s infinite;
+  animation: changebar 2.25s infinite;
 }
 
 .butterbar.active .bar:before {
   -webkit-animation: movingbar 0.75s infinite;
-     -moz-animation: movingbar 0.75s infinite;
-          animation: movingbar 0.75s infinite;
+  -moz-animation: movingbar 0.75s infinite;
+  animation: movingbar 0.75s infinite;
 }
 
 /* Moving bar */
@@ -5124,14 +5119,14 @@ a.text-#000000:hover {
   padding: 5px 85px 10px 0;
 }
 .content-img {
-    width: 100px;
-    margin-right: 10px;
-    float: left;
-    height: 80px;
-    overflow: hidden;
+  width: 100px;
+  margin-right: 10px;
+  float: left;
+  height: 80px;
+  overflow: hidden;
 }
 .content-main {
-    margin-left: 120px;
+  margin-left: 120px;
 }
 /* line 89, /var/www/prod/v2.toutiao.io/app/assets/stylesheets/posts.scss */
 .post .title {
@@ -5291,9 +5286,7 @@ a.text-#000000:hover {
   margin-top: 5px;
 }
 /*
-
         Creating a sprite from following images:
-
         app/assets/images/sprites/social-share-button/baidu.png (16x16)
         app/assets/images/sprites/social-share-button/delicious.png (16x16)
         app/assets/images/sprites/social-share-button/douban.png (16x16)
@@ -5311,14 +5304,11 @@ a.text-#000000:hover {
         app/assets/images/sprites/social-share-button/tumblr.png (16x16)
         app/assets/images/sprites/social-share-button/twitter.png (16x16)
         app/assets/images/sprites/social-share-button/weibo.png (16x16)
-
         Output files:
           app/assets/images/sprites/social-share-button.png
           app/assets/stylesheets/social-share-button.scss
-
         Output size:
           80x64
-
 */
 /* line 32, /usr/local/rvm/gems/ruby-2.1.2@v2.toutiao.io/gems/social-share-button-0.1.8/app/assets/stylesheets/social-share-button.scss */
 .social-share-button-baidu {
@@ -5622,11 +5612,6 @@ a.text-#000000:hover {
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
-
-
-
-
-
  */
 /* line 22, /var/www/prod/v2.toutiao.io/app/assets/stylesheets/application.scss */
 html {
@@ -6539,412 +6524,412 @@ header.navbar .navbar-toggle .icon-bar {
 
 /*赞成and反对*/
 .votebar {
-    float: left;
-    margin-right: 18px;
-    margin-top: 5px;
+  float: left;
+  margin-right: 18px;
+  margin-top: 5px;
 }
 .votebar.keep-top{
-    position: fixed;
-    top: 60px;
+  position: fixed;
+  top: 60px;
 }
 .votebar .up,
 .votebar .down {
-    background: #eff6fa;
-    border: none;
-    border-radius: 3px;
-    color: #25bb9b;
-    cursor: pointer;
-    display: block;
-    font-weight: 500;
-    height: 24px;
-    line-height: 24px;
-    position: relative;
-    width: 38px;
-    outline: none;
+  background: #eff6fa;
+  border: none;
+  border-radius: 3px;
+  color: #25bb9b;
+  cursor: pointer;
+  display: block;
+  font-weight: 500;
+  height: 24px;
+  line-height: 24px;
+  position: relative;
+  width: 38px;
+  outline: none;
 }
 .votebar .up {
-    height: 44px;
+  height: 44px;
 }
 .votebar .label {
-    display: block;
-    text-indent: -9999em;
+  display: block;
+  text-indent: -9999em;
 }
 .votebar .count {
-    left: 0;
-    position: absolute;
-    top: 18px;
-    top: 10px\9;
-    *top: 18px;
-    width: 100%;
-    /*line-height: 22px;*/
-    display: block;
+  left: 0;
+  position: absolute;
+  top: 18px;
+  top: 10px\9;
+  *top: 18px;
+  width: 100%;
+  /*line-height: 22px;*/
+  display: block;
 }
 .votebar .vote-arrow {
-    display: inline-block;
-    border: 6px solid transparent;
-    font-size: 0;
-    height: 0;
-    width: 0;
+  display: inline-block;
+  border: 6px solid transparent;
+  font-size: 0;
+  height: 0;
+  width: 0;
 }
 .votebar .up .vote-arrow {
-    border-bottom-color: #25bb9b;
-    border-top-style: solid;
-    border-top-width: 0;
-    margin-bottom: 10px;
+  border-bottom-color: #25bb9b;
+  border-top-style: solid;
+  border-top-width: 0;
+  margin-bottom: 10px;
 }
 .votebar .up:hover .vote-arrow,
 .votebar .up.pressed .vote-arrow {
-    border-bottom-color: #FFF;
+  border-bottom-color: #FFF;
 }
 .votebar .down .vote-arrow {
-    border-bottom-width: 0;
-    border-top-color: #25bb9b;
+  border-bottom-width: 0;
+  border-top-color: #25bb9b;
 }
 .votebar .down:hover .vote-arrow,
 .votebar .down.pressed .vote-arrow {
-    border-top-color: #fff;
+  border-top-color: #fff;
 }
 .votebar .up:hover,
 .votebar .down:hover,
 .votebar .up.pressed,
 .votebar .down.pressed {
-    background: #25bb9b;
-    color: #fff;
+  background: #25bb9b;
+  color: #fff;
 }
 .votebar .down {
-    margin: 5px 0 0;
+  margin: 5px 0 0;
 }
 .votebar .rcmd-label {
-    color: #fff;
-    background: #E54E38;
-    padding: 2px 5px;
-    display: block;
-    text-align: center;
-    margin-top: 10px;
+  color: #fff;
+  background: #E54E38;
+  padding: 2px 5px;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .letter-list {
-    margin: -10px -20px 0;
+  margin: -10px -20px 0;
 }
 .letter-list li {
-    border-bottom: 1px solid #E0E0E0;
-    padding: 20px 10px;
-    overflow: hidden;
-    margin: 0 10px;
-    position: relative;
+  border-bottom: 1px solid #E0E0E0;
+  padding: 20px 10px;
+  overflow: hidden;
+  margin: 0 10px;
+  position: relative;
 }
 .letter-link {
-    display: block;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 1;
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
 }
 .letter-list li:hover {
-    background: #ECF0F1;
-    cursor: pointer;
+  background: #ECF0F1;
+  cursor: pointer;
 }
 
 .letter-info {
-    float: right;
-    text-align: right;
-    color: #999;
-    font-size: 12px;
+  float: right;
+  text-align: right;
+  color: #999;
+  font-size: 12px;
 
 }
 .letter-info p {
-    line-height: 2;
+  line-height: 2;
 }
 .letter-info a{
-    color: #21a88b;
+  color: #21a88b;
 }
 .letter-info a:hover {
-    color: #25bb9b;
+  color: #25bb9b;
 }
 .letter-detail {
-    float: left;
-    font-size: 14px;
-    line-height: 1em;
-    width: 320px;
+  float: left;
+  font-size: 14px;
+  line-height: 1em;
+  width: 320px;
 }
 .letter-detail .letter-name {
-    position: absolute;
-    left: 80px;
-    top: 20px;
-    z-index: 2;
-    color: #CCC;
-    display: inline-block;
-    /*display: block;*/
+  position: absolute;
+  left: 80px;
+  top: 20px;
+  z-index: 2;
+  color: #CCC;
+  display: inline-block;
+  /*display: block;*/
 
 }
 .letter-brief {
-    position: absolute;
-    left: 80px;
-    top: 50px;
-    z-index: 2;
-    color: #666;
-    float: left;
-    font-size: 14px;
-    width: 300px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    /*for ie8不变省略号问题*/
-    word-wrap:normal;
+  position: absolute;
+  left: 80px;
+  top: 50px;
+  z-index: 2;
+  color: #666;
+  float: left;
+  font-size: 14px;
+  width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /*for ie8不变省略号问题*/
+  word-wrap:normal;
 }
 .msg-num {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #e84a4a;
-    color: #FFF;
-    border-radius: 50px;
-    line-height: 16px;
-    min-height: 16px;
-    outline: medium none;
-    padding: 0 4px;
-    text-align: center;
-    z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #e84a4a;
+  color: #FFF;
+  border-radius: 50px;
+  line-height: 16px;
+  min-height: 16px;
+  outline: medium none;
+  padding: 0 4px;
+  text-align: center;
+  z-index: 10;
 }
 .chat-headbox {
-    position: relative;
-    float: left;
-    z-index: 2;
+  position: relative;
+  float: left;
+  z-index: 2;
 }
 .list-head {
-    display: block;
-    float: left;
-    width: 50px;
-    height: 50px;
-    overflow: hidden;
-    border: 1px solid #ededed;
-    border-radius: 50px;
+  display: block;
+  float: left;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border: 1px solid #ededed;
+  border-radius: 50px;
 }
 .l-operate-bar {
-    white-space: nowrap;
-    position: absolute;
-    right: 10px;
-    bottom: 20px;
-    font-size: 12px;
-    z-index: 2;
+  white-space: nowrap;
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+  font-size: 12px;
+  z-index: 2;
 }
 .l-operate-bar a {
-    color: #21a88b;
+  color: #21a88b;
 }
 .l-operate-bar a:hover {
-    color: #25bb9b;
+  color: #25bb9b;
 }
 .follow-list .l-operate-bar a,
 .follow-list .l-operate-bar a:hover {
-    color: #FFF;
+  color: #FFF;
 }
 
 .l-time {
-    position: absolute;
-    right: 10px;
-    top: 20px;
-    z-index: 2;
-    white-space: nowrap;
-    font-size: 12px;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  z-index: 2;
+  white-space: nowrap;
+  font-size: 12px;
 }
 .letter-chatlist {
-    padding: 20px;
+  padding: 20px;
 }
 .letter-chatlist li {
-    margin-bottom: 40px;
-    overflow: hidden;
-    list-style: none;
+  margin-bottom: 40px;
+  overflow: hidden;
+  list-style: none;
 }
 .letter-chat {
-    background: #ECF1F1;
-    width: 600px;
-    max-width: 100%;
-    padding: 20px 25px;
-    text-align: left;
-    color: #666;
+  background: #ECF1F1;
+  width: 600px;
+  max-width: 100%;
+  padding: 20px 25px;
+  text-align: left;
+  color: #666;
 }
 .letter-chatlist .list-head {
   margin: 20px 20px 0 0;
 }
 
 .letter-chat .sns-action-reply{
-    visibility: hidden;
-    _visibility: visible;
+  visibility: hidden;
+  _visibility: visible;
 }
 .letter-chat:hover .sns-action-reply{
-    visibility: visible;
+  visibility: visible;
 }
 .letter-chatlist .tooltip {
-    position: relative;
-    float: left;
+  position: relative;
+  float: left;
 
 }
 .letter-chatlist .my-reply .tooltip.right,
 .letter-chatlist .tooltip.right {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 .letter-chatlist .tooltip.right .tooltip-arrow {
-    border-right-color: #ECF1F1;
-    left: -9px;
-    margin-top: -30px;
+  border-right-color: #ECF1F1;
+  left: -9px;
+  margin-top: -30px;
 }
 
 .letter-chat .chat-content {
-    width: 300px;
-    line-height: 1.6;
-    font-size: 14px;
+  width: 300px;
+  line-height: 1.6;
+  font-size: 14px;
 }
 .chat-content a {
-    color: #25bb9b;
+  color: #25bb9b;
 }
 .chat-content img{
-    cursor: -moz-zoom-in;
-    cursor: -webkit-zoom-in;
-    cursor: zoom-in;
-    cursor: url(http://static.zhihu.com/static/img/zoom-in.cur);
+  cursor: -moz-zoom-in;
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+  cursor: url(http://static.zhihu.com/static/img/zoom-in.cur);
 }
 
 .letter-chat .letter-info {
-    width: 120px;
+  width: 120px;
 }
 .tooltip {
-    position: absolute;
-    display: block;
-    line-height: 1.4;
-    visibility: visible;
-    font-size: 14px;
-    z-index: 99;
+  position: absolute;
+  display: block;
+  line-height: 1.4;
+  visibility: visible;
+  font-size: 14px;
+  z-index: 99;
 }
 .letter-chatlist .my-reply .tooltip.right, .letter-chatlist .tooltip.right {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 .letter-chatlist .tooltip {
-    position: relative;
-    float: left;
+  position: relative;
+  float: left;
 }
 .tooltip.right {
-    padding: 0 5px;
-    margin-left: 3px;
+  padding: 0 5px;
+  margin-left: 3px;
 }
 .letter-chatlist .tooltip.right .tooltip-arrow {
-    border-right-color: #ECF1F1;
-    left: -9px;
-    margin-top: -30px;
+  border-right-color: #ECF1F1;
+  left: -9px;
+  margin-top: -30px;
 }
 .tooltip.right .tooltip-arrow {
-    border-right-color: #34495e;
-    border-width: 9px 9px 9px 0;
-    margin-top: -9px;
-    left: -4px;
-    top: 50%;
+  border-right-color: #34495e;
+  border-width: 9px 9px 9px 0;
+  margin-top: -9px;
+  left: -4px;
+  top: 50%;
 }
 .tooltip-arrow, .tooltip-arrow i {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border: 9px solid transparent;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 9px solid transparent;
 }
 
 .masklayer {
-    width: 100%;
-    height: 100%;
-    background: #000;
-    opacity: 0.6;
-    filter: alpha(opacity=60);
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
 }
 
 /* styles/common/component/popup-wrap.css */
 .layer-container {
-    position:absolute;
-    overflow:auto;
-    top:0;
-    left:0;
-    z-index: 100;
-    overflow: hidden;
+  position:absolute;
+  overflow:auto;
+  top:0;
+  left:0;
+  z-index: 100;
+  overflow: hidden;
 }
 .layer-container-bg{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    background: #000;
-    width: 100%;
-    height: 100%;
-    opacity: 0.3;
-    filter: alpha(opacity=30);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: #000;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  filter: alpha(opacity=30);
 }
 .layer-container-content{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 101;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    overflow-x: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  overflow-x: hidden;
 }
 /*弹窗框架样式*/
 .pop-box {
-    /*border-radius: 10px;*/
-    border-radius: 4px;
-    background: #FFF;
-    /*position: absolute;
-    z-index: 201;*/
+  /*border-radius: 10px;*/
+  border-radius: 4px;
+  background: #FFF;
+  /*position: absolute;
+  z-index: 201;*/
 }
 .pop-title {
-    padding: 15px 20px;
-    overflow: hidden;
-    background: #f0f0f0;
-    border-radius: 4px 4px 0 0;
+  padding: 15px 20px;
+  overflow: hidden;
+  background: #f0f0f0;
+  border-radius: 4px 4px 0 0;
 
 }
 .pop-title h1 {
-    margin: 0;
-    float: left;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 20px;
+  margin: 0;
+  float: left;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 20px;
 }
 .pop-title h1:before {
-    background: #FF6547;
-    content: "";
-    display: inline-block;
-    width: 7px;
-    height: 7px;
-    margin-right: 5px;
-    margin-bottom: 2px;
-    vertical-align: middle;
+  background: #FF6547;
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 5px;
+  margin-bottom: 2px;
+  vertical-align: middle;
 }
 .pop-title-link {
-    float: right;
-    font-size: 16px;
-    color: #1abc9c;
+  float: right;
+  font-size: 16px;
+  color: #1abc9c;
 }
 .pop-close {
-    display: block;
-    text-indent: -9999em;
-    outline: none;
-    float: right;
-    width: 12px;
-    height: 12px;
-    margin-top: 4px;
-    background: url(../images/img/pop-close.png) no-repeat;
+  display: block;
+  text-indent: -9999em;
+  outline: none;
+  float: right;
+  width: 12px;
+  height: 12px;
+  margin-top: 4px;
+  background: url(../images/img/pop-close.png) no-repeat;
 }
 .pop-content {
-    padding: 20px;
+  padding: 20px;
 }
 .pop-text-box {
-    max-height: 200px;
-    overflow-y: auto;
-    margin-bottom: 20px;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 20px;
 }
 .pop-text-box p {
   margin-top: 5px;
@@ -6952,91 +6937,91 @@ header.navbar .navbar-toggle .icon-bar {
 }
 /*弹窗内容大间距*/
 .pop-padding-lg {
-    padding: 20px 50px;
+  padding: 20px 50px;
 }
 .pop-tip {
-    font-size: 14px;
-    margin-bottom: 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 .pop-bigbtn {
-    padding: 10px 45px;
-    font-size: 16px;
+  padding: 10px 45px;
+  font-size: 16px;
 }
 .pop-msg-tip {
-    font-size: 16px;
-    padding: 30px;
+  font-size: 16px;
+  padding: 30px;
 }
 .pop-msg-tip .fui-cross {
-    color: #FFF;
-    background: #ff6547;
-    border-radius: 20px;
-    width: 36px;
-    height: 36px;
-    text-align: center;
-    line-height: 36px;
-    font-size: 20px;
-    margin-right: 10px;
+  color: #FFF;
+  background: #ff6547;
+  border-radius: 20px;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+  font-size: 20px;
+  margin-right: 10px;
 }
 .pop-footer{
-    padding: 15px 20px;
-    overflow: hidden;
-    background: #f0f0f0;
-    border-radius: 0 0 4px 4px;
+  padding: 15px 20px;
+  overflow: hidden;
+  background: #f0f0f0;
+  border-radius: 0 0 4px 4px;
 }
 
 .pop-box {
-    position: absolute;
-    z-index: 1000;
+  position: absolute;
+  z-index: 1000;
 }
 /*弹窗框架样式结束*/
 .input-section .control-label {
-    padding: 0 15px;
-    font-size: 14px;
-    float: left;
-    width: 125px;
-    line-height: 42px;
-    height: 42px;
-    text-align: right;
-    margin-bottom: 0;
+  padding: 0 15px;
+  font-size: 14px;
+  float: left;
+  width: 125px;
+  line-height: 42px;
+  height: 42px;
+  text-align: right;
+  margin-bottom: 0;
 }
 .form-group:after, .form-group:before {
-    clear: both;
-    content: ".";
-    display: block;
-    height: 0;
-    visibility: hidden;
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
 }
 .input-section .control-group {
-    line-height: 42px;
-    height: 42px;
+  line-height: 42px;
+  height: 42px;
 }
 .form-group .control-group {
-    float: left;
+  float: left;
 }
 .control-group input {
-    height: 34px;
-    line-height: 34px;
+  height: 34px;
+  line-height: 34px;
 }
 .control-group {
   position: relative;
   width: 260px;
 }
 .control-group > .input-icon {
-    position: absolute;
-    top: 9px;
-    right: -20px;
-    vertical-align: middle;
-    font-size: 20px;
-    background: #FFF;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
-    line-height: 20px;
-    display: none;
+  position: absolute;
+  top: 9px;
+  right: -20px;
+  vertical-align: middle;
+  font-size: 20px;
+  background: #FFF;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  line-height: 20px;
+  display: none;
 }
 /* 错误提示icon */
 .input-icon.icon-remove-sign {
-    color: #ff5400;
+  color: #ff5400;
 }
 /* 成功提示icon */
 .input-icon.icon-ok-sign {
@@ -7055,13 +7040,13 @@ header.navbar .navbar-toggle .icon-bar {
   position: absolute;
   left: 0;
   bottom: -16px;
-    display: none;
-    font-size: 14px;
-    line-height: 14px;
+  display: none;
+  font-size: 14px;
+  line-height: 14px;
 }
 /* 错误提示文案 */
 .error .input-tip {
-    color: #ff5400;
+  color: #ff5400;
 }
 /*输入框*/
 textarea,
@@ -7127,45 +7112,45 @@ textarea[readonly] {
   margin-left: 10px;
 }
 .pop-content .about-pwd {
-    margin: 0 0 10px 125px;
+  margin: 0 0 10px 125px;
 }
 .alert-info {
-    background: #dff1ed;
-    border-color: #cbede5;
+  background: #dff1ed;
+  border-color: #cbede5;
 }
 .letter-pic-box {
-    float: left;
-    margin: 0 5px 5px 0;
-    position: relative;
-    width: 80px;
-    height: 80px;
+  float: left;
+  margin: 0 5px 5px 0;
+  position: relative;
+  width: 80px;
+  height: 80px;
 }
 .letter-pic-box img {
-    width: 80px;
-    position: relative;
-    z-index: 1;
+  width: 80px;
+  position: relative;
+  z-index: 1;
 }
 .letter-pic-box:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .letter-pic-box:hover .mask {
-    display: block;
+  display: block;
 }
 .letter-pic-box:hover .icon-remove-circle {
-    display: block;
+  display: block;
 }
 .letter-pic-box .icon-remove-circle {
-    display: none;
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    color: #fff;
-    font-size: 20px;
-    z-index: 4;
-    -webkit-font-smoothing: antialiased;
+  display: none;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  color: #fff;
+  font-size: 20px;
+  z-index: 4;
+  -webkit-font-smoothing: antialiased;
 }
 .btn-upload {
-    margin-top: 47px;
-    margin-left: 0;
+  margin-top: 47px;
+  margin-left: 0;
 }
 /* popup-wrap end */

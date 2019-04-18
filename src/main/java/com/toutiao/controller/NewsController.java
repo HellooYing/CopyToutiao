@@ -78,8 +78,11 @@ public class NewsController {
             News news=newsService.getById(newsId);
             model.addAttribute("news",news);
             model.addAttribute("owner",userService.getUser(news.getUserId()));//发表news的人
-            int likeStatus=likeService.getLikeStatus(hostHolder.getUser().getId(), EntityType.ENTITY_NEWS,news.getId());
-            model.addAttribute("like",likeStatus);
+            if(hostHolder.getUser()!=null){
+                int likeStatus=likeService.getLikeStatus(hostHolder.getUser().getId(), EntityType.ENTITY_NEWS,news.getId());
+                model.addAttribute("like",likeStatus);
+            }
+            else model.addAttribute("like",0);
             List<Comment> comments=commentService.getCommentsByEntity(news.getId(), EntityType.ENTITY_NEWS);
             List<ViewObject> commentVOs = new ArrayList<ViewObject>();
             for(Comment comment:comments){
