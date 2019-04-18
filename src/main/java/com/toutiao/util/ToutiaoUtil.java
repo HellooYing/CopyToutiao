@@ -13,8 +13,8 @@ import java.util.Map;
  */
 public class ToutiaoUtil {
     private static Logger logger = LoggerFactory.getLogger(ToutiaoUtil.class);
-    public static String TOUTIAO_DOMAIN="http://127.0.0.1:8080/";
-    public static String IMAGE_DIR="../1/";
+    public static String TOUTIAO_DOMAIN="http://himcq.top/";
+    public static String IMAGE_DIR="/home/mcq/sites/himcq.top/picture/";
     public static String[] IMAGE_FILE_EXTD = new String[] {"png", "bmp", "jpg", "jpeg"};
 
     public static boolean isFileAllowed(String fileName){
