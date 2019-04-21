@@ -1,0 +1,12 @@
+#save-basic-settings {
+    display:block;
+    bottom:24px; 
+    right:24px;
+    line-height:30px;
+    position:fixed;
+    text-align:center;
+}
+horizontal-list {
+    float:left; 
+    margin:5px; 
+}

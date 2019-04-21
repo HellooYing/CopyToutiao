@@ -1,0 +1,426 @@
+body{
+	background: #1a1a1b;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 16px;
+	color: #f1f1f1;
+	line-height: 25px;
+	text-align: center;
+	overflow-x: hidden !important;
+	margin: auto !important;
+}
+
+h6 {
+	font-family: 'Raleway', sans-serif;
+	color: #fff;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+h6 {
+	line-height: 25px;
+	font-weight: 700;
+    font-size: 16px;
+}
+
+.preloaders {
+    background-color: #1a1a1b;
+}
+
+.line, .line-two {
+	height: 2px;
+	width: 100px;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.distance-header .sub-heading {
+    font-size: 20px;
+    padding-right: 10%;
+    padding-left: 10%;
+    color: #ffffff;
+    margin-top: 40px;
+    line-height: 30px;
+}
+
+/*---------------------------------------
+    Button        
+-----------------------------------------*/
+
+.distance-button {
+    margin-top: 75px;
+    margin-bottom: 25px;
+}
+
+.btn:focus,
+.btn:active,
+.btn,
+.open .dropdown-toggle.btn {
+	outline: inherit;
+	border-color: inherit;
+}
+
+.btn {
+	margin-top: 25px;
+}
+
+.standard-button {
+    padding: 10px 25px;
+    margin: 5px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	text-transform: uppercase;
+	border-radius: 0 !important;
+	border: 0;
+	line-height: inherit;
+	-webkit-transition: all ease 0.25s;
+	transition: all ease 0.25s;
+    color: #ffffff;
+}
+.standard-button:hover {
+    border-color: #ffffff;
+	color: #ffffff;
+}
+.standard-button {
+	margin: 0;
+	padding: 10px 20px;
+	vertical-align: middle;
+}
+
+
+
+.about p {
+	margin-top: 45px;
+}
+
+ul {
+	padding-left: 0 !important;
+	list-style: none;
+}
+
+ol {
+	padding-left: 0 !important;
+}
+
+/*---------------------------------------
+  About Product Features               
+-----------------------------------------*/
+
+.feature-list {
+	margin-top: 25px;
+}
+
+.feature-list li {
+	overflow: auto;
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+
+.feature-list li .icon-custom {
+	width: 32px;
+	height: 32px;
+	border-radius: 3px;
+	color: #ffffff;
+	line-height: 32px;
+	margin-right: 15px;
+	margin-top: 5px;
+	text-align: center;
+}
+
+.feature-list li .icon-custom2 {
+	width: 32px;
+	height: 32px;
+	border-radius: 3px;
+	color: #ffffff;
+	line-height: 32px;
+	margin-right: 15px;
+	margin-top: 5px;
+	text-align: center;
+}
+
+.feature-list li .details {
+	width: 89%;
+}
+
+.feature-list li .details p {
+	margin-top: 5px;
+}
+
+/*----------------------------------------
+   Portfolio             
+------------------------------------------*/
+.galleryFull img.img-responsive {
+	margin: 0px;
+	max-width: none;
+}
+.gallery-pad {
+    /*padding-top: 30px;*/
+    margin-top: -10px;
+}
+.no-gutter>[class*=col-] {
+    padding-right: 0;
+}
+.p0 {
+	margin-right: 0px;
+}
+.img-box {
+    position: relative;
+    overflow: hidden;
+}
+.img-box img {
+    width: calc(100% + 60px);
+    height: calc(100% + 60px);
+    transition: opacity .35s,-webkit-transform .45s;
+    transition: opacity .35s,transform .45s;
+    -webkit-transform: translate3d(-40px,0,0);
+    transform: translate3d(-40px,0,0);
+}
+.grid-item {
+	width: auto;
+    height: 350px;
+}
+.home_text {
+    position: absolute;
+    z-index: 9;
+    height: auto;
+    width: auto;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.home_text p{
+    text-decoration: underline;
+    color: #fff;
+    font-size: 10px;
+    font-weight: inherit;
+}
+
+/*========================================
+   Pricing Table             
+==========================================*/
+.pricing-table {
+	margin-top: 35px;
+}
+
+.package {
+	overflow: auto;
+	margin-top: 60px;
+}
+.package-center {
+	overflow: auto;
+	margin-top: 30px;
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.09);
+}
+
+.package-center .header {
+	padding-top: 30px;
+	padding-bottom: 30px;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+  
+}
+
+.package-center .header h3 {
+	color: #ffffff;
+}
+
+.package .header-dark {
+	padding-top: 15px;
+	padding-bottom: 15px;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+  
+}
+
+.package .header-dark h3 {
+	color: #ffffff;
+}
+.package-features{
+	background-color: #1b1b1b;
+}
+.package-features .column-button {
+	width: 40%;
+    margin: 0 auto;
+}
+
+.package-features ul li {
+	overflow: auto;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-right: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.package-features .bottom-row {
+	overflow: auto;
+	padding-top: 8px;
+	padding-bottom: 17px;
+	padding-right: 35px;
+	padding-left: 24px;
+}
+
+.package-features .bottom-row h6 {
+	padding-top: 5px;
+}
+
+.package-features .bottom-row .standard-button {
+	margin: 0;
+	padding: 10px 20px;
+	vertical-align: middle;
+}
+.package-features .bottom-row .secondary-button {
+	margin: 0;
+	padding: 5px 15px;
+	vertical-align: middle;
+}
+svg.pricing-triangle {
+	pointer-events: none;
+}
+
+.pricing-triangle path {
+	fill: #252527;
+	stroke: #252527;
+	stroke-width: 2;
+}
+
+/*---------------------------------------
+   All Section                
+-----------------------------------------*/
+.section-about,
+.section-features,
+.section-pricing,
+.section-portfolio,
+.section-testimonial {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+/*--------------------------------------------------
+	[TEAM]
+----------------------------------------------------*/
+.section-follow-me {
+	background: url(/images/lottery/4.jpg) no-repeat center fixed;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.team-bg {
+	z-index: 1;
+	height: auto;
+	overflow: hidden;
+	padding: 100px 0 100px 0;
+	background-size: cover;
+	background-position: center center;
+}
+.team-bg .team-members {
+	width: 100%;
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 35px; 
+}
+.team-bg .team-members .team-avatar {
+	position: relative; 
+}
+.team-bg .team-members .team-avatar:after {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	content: " ";
+	position: absolute;
+	background: rgba(129, 129, 129, 0.1);
+	transition-duration: 300ms;
+	transition-property: all;
+	transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1); 
+}
+.team-bg .team-members .team-avatar img {
+	display: block;
+	margin: 0 auto;
+	text-align: center; 
+}
+.team-bg .team-members .team-desc {
+	left: auto;
+	bottom: 0;
+	width: 100%;
+	padding: 0 20px;
+	position: absolute;
+	opacity: 0;
+	color: #fff;
+	-webkit-transform: translate3d(0, 10%, 0);
+	transform: translate3d(0, 10%, 0);
+	-webkit-transition: opacity 0.3s;
+	-moz-transition: opacity 0.3s;
+	-ms-transition: opacity 0.3s;
+	-o-transition: opacity 0.3s;
+	transition: opacity 0.3s; 
+}
+.team-bg .team-members .team-desc .team-details {
+	float: center; 
+}
+.team-bg .team-members .team-desc .team-details h4 {
+	font-size: 22px;
+	font-weight: 600;
+	margin: 0 0 10px;
+	color: #fff; 
+}
+.team-bg .team-members .team-desc .team-details span {
+	display: block;
+	font-size: 13px;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #fff; 
+}
+.team-bg .team-members:hover .team-avatar:after {
+	background: rgba(47, 60, 72, 0.5);
+	transition-duration: 300ms;
+	transition-property: all;
+	transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1); 
+}
+.team-bg .team-members:hover .team-desc {
+	-webkit-transform: translate3d(0, -5%, 0);
+	transform: translate3d(0, -5%, 0);
+	-webkit-transform: translate3d(0, -10%, 0);
+	transform: translate3d(0, -10%, 0); 
+}
+.team-bg .team-members:hover .team-desc {
+	opacity: 1;
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	-ms-transition: all 0.4s;
+	-o-transition: all 0.4s;
+	transition: all 0.4s; 
+}
+.team-bg .team-about {
+	padding: 30px;
+	background: rgba(129, 129, 129, 0.1);
+}
+.team-bg .team-about h3 {
+	color: #d4d9de;
+	font-size: 20px;
+	margin: 0 0 10px;
+	text-transform: capitalize; 
+}
+.team-bg .team-about p {
+	color: #8693a7;
+}
+  
+/* Stylesheet design for above 992px */
+@media (min-width: 992px) {
+	/* 992px */
+	.team-about {
+	  min-height: 495px; 
+	} 
+}
+.heading-light {
+	z-index: 1;
+	position: relative;
+	text-align: center;
+	margin-bottom: 100px; 
+}
+.heading-light h2 {
+    font-size: 40px;
+    font-weight: 500;
+    margin: 0 0 20px;
+	color: #fff; 
+}

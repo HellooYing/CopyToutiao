@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>软件攻城部队在线抽奖现场</title>
+    <link href="/styles/lottery/main3dstyle.css" rel="stylesheet" type="text/css">
+    <link href="/styles/lottery/swiper.min.css" rel="stylesheet" type="text/css">
+    <link href="/styles/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="/scripts/main/site/lottery/jquery.min.js"></script>
+    <script src="/scripts/main/site/lottery/bootstrap.min.js"></script>
+    <script src="/scripts/main/site/lottery/swiper.min.js"></script>
+</head>
+<body>
+<!--奖品进度显示模块-->
+<div class="container m_prize">
+    <div class="row clearfix">
+        <div class="col-md-4 column">
+            <h3>
+                一等奖：<span id="m_p1"></span>
+            </h3>
+            <div class="progress active progress-striped">
+                <div id = "m_ps1" class="progress-bar progress-success" style="width:100%;">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 column">
+            <h3>
+                二等奖：<span id="m_p2"></span>
+            </h3>
+            <div class="progress progress-striped active">
+                <div id = "m_ps2" class="progress-bar progress-success" style="width:100%;">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 column">
+            <h3>
+                三等奖：<span id="m_p3"></span>
+            </h3>
+            <div class="progress active progress-striped">
+                <div id = "m_ps3" class="progress-bar progress-success" style="width:100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--新年弹幕显示块-->
+<div id="NYwishes" class="NYwishes">
+    <h2>发发发发发</h2>
+    <div class="swiper-container">
+        <div  id="conts">
+            <div class="dm">
+                <!--d_screen start-->
+                <div class="d_screen">
+                    <div class="d_mask"></div>
+                    <div class="d_show">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="send">
+        <div class="input">
+            <input id="reply-write" name="content" type="text" value="" placeholder="说出你的愿望" >
+        </div>
+        <div class="send-btn" >
+            <a onClick="send_reply2()">发送</a>
+        </div>
+    </div>
+</div>
+<script>
+
+    function send_reply2() {
+        var content = $("#reply-write").val();
+        if ($.trim(content) == "") {
+            alert("亲，请说出你的新年愿望！");
+            return false;
+        }
+        var text=$("#reply-write").val();
+        input(text)
+        $("#reply-write").val("");//清空input框
+        update_screen();
+        if($(".d_show").height()>180){
+            $($(".d_show").children("div").get(0)).toggle(1000);
+            $($(".d_show").children("div").get(0)).remove();
+        }
+    }
+    $(function(){
+        var date=[{'id':1,'val':'一夜春风到'},{'id':2,'val':'新年花枝俏'},{'id':3,'val':'俏也不争春'},{'id':4,'val':'只报福来报'}];
+        var i=0;
+        setInterval(function(){//每隔1S执行函数
+            if($(".d_show").height()<100){
+                if(i<date.length){
+                    input(date[i].val)
+                    i++;
+                }else{//i==data.length则回到0，如此循环输出date的内容
+                    i=0
+                    input(date[i].val)
+                    i++;
+                }
+            }else{
+                update_screen();//超过四个4*25px，
+                $($(".d_show").children("div").get(0)).remove();
+                if(i<date.length){
+                    input(date[i].val)
+                    i++;
+                }else{
+                    i=0
+                    input(date[i].val)
+                    i++;
+                }
+            }
+        },1000);
+
+        $("#reply-write").keyup(function(ev){
+            var ev=ev||event;
+            if(ev.keyCode==13){
+                send_reply2();
+            }
+        });
+    })
+    function update_screen(){//初始化屏幕
+        //遍历所有后代div并显示
+        let it;
+        $(".d_show").find("div").show().each(function () {
+            it=setInterval(function(){
+                $($(".d_show").children("div").get(0)).toggle(1000);
+            },1000);
+        });
+        clearInterval(it);
+    }
+    function input(val){//向愿望墙显示val
+        var div=$("<div><img src='/images/lottery/bg.png'/>"+val+"</div>");
+        $(".d_show").append(div.fadeIn(1000));
+    }
+</script>
+<!--3D抽奖模块-->
+<div id="container">
+    <div id="ctrSection">
+        <button id="start" class="m_button" onclick="changeState('start')">start</button>
+        <button id="stop" class="m_button" onclick="changeState('stop')">stop</button>
+        <button id="music" class="m_button" onclick="music_init()">music</button>
+        <button class="m_button" onclick="$('#NYwishes').fadeToggle();">curtain</button>
+    </div>
+</div>
+<!--背景模块-->
+<canvas id="m_canvas">Canvas is not supported in your browser.</canvas>
+<audio id="m_music" loop="loop" preload="auto" autoplay="autoplay" src="/music/shiji.mp3">
+</audio>
+<script src="/scripts/main/site/lottery/fireworks.js"></script>
+<script src="/scripts/main/site/lottery/three.js"></script>
+<script src="/scripts/main/site/lottery/tween.min.js"></script>
+<script src="/scripts/main/site/lottery/TrackballControls.js"></script>
+<script src="/scripts/main/site/lottery/CSS3DRenderer.js"></script>
+<script src="/scripts/main/site/lottery/lootery3D.js"></script>
+</body>
+</html>

@@ -1,0 +1,601 @@
+<html>
+<head>
+    <title>抽奖后台管理系统</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles/lottery/simple-line-icons.css">
+    <link rel="stylesheet" href="/styles/font-awesome.min.css">
+    <link rel="stylesheet" href="/styles/lottery/styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles/lottery/waifu.css"/>
+    <link href="/styles/lottery/mdui.min.css" rel="stylesheet">
+    <link href="/styles/lottery/main.css" rel="stylesheet">
+    <script src="/scripts/main/site/lottery/xlsx.full.min.js"></script>
+    <script src="/scripts/main/site/lottery/mdui.min.js"></script>
+    <script src="/scripts/main/site/lottery/jquery.min.js"></script>
+    <script src="/scripts/main/site/lottery/main.js"></script>
+    <style>
+        body{
+            background:white;
+        }
+    </style>
+</head>
+
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-loaded mdui-drawer-body-left">
+<!--页面容器-->
+<div id="basic-settings-page-container" class="mdui-container">
+    <!--应用工具栏-->
+    <div class="mdui-appbar mdui-appbar-fixed">
+        <div class="mdui-toolbar mdui-color-blue">
+                    <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#drawer', swipe: true}">
+                        <i class="mdui-icon material-icons" style="color:aliceblue">menu</i></span>
+            <a  class="mdui-typo-headline" style="color:aliceblue; font-weight: 500;" >抽奖后台管理系统</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <!--发布活动-->
+            <button href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '发布活动'}" mdui-menu="{target: '#publish-activity'}">
+                <i class="mdui-icon material-icons" style="color:aliceblue">&#xe255</i></button>
+
+            <ul class="mdui-menu" id="publish-activity">
+                <li class="mdui-menu-item">
+                    <a class="mdui-ripple">发布大屏幕抽奖</a>
+                </li>
+                <li class="mdui-menu-item">
+                    <a onclick="add()"  class="mdui-ripple">发布终端抽奖活动</a>
+                </li>
+            </ul>
+            <a onclick="refresh()" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '刷新页面'}">
+                <i class="mdui-icon material-icons" style="color:aliceblue" >refresh</i></a>
+            <button href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '更多'}" mdui-menu="{target: '#more'}">
+                <i class="mdui-icon material-icons" style="color:aliceblue" >more_vert</i></button>
+            <ul class="mdui-menu" id="more">
+                <li class="mdui-menu-item">
+                    <a onclick="ShowAccountCenterPage()"  class="mdui-ripple">个人中心</a>
+                </li>
+                <li class="mdui-menu-item">
+                    <a href="javascript:;" class="mdui-ripple">会员续费</a>
+                </li>
+                <li class="mdui-divider"></li>
+                <li class="mdui-menu-item">
+                    <a href="javascript:;" class="mdui-ripple">联系我们</a>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--抽屉式导航栏-->
+    <div class="mdui-drawer" id="drawer">
+        <ul class="mdui-list">
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe8b8;</i>
+                <a class="mdui-list-item-content" onclick="ShowBasicSettingsPage()">基础设置</a>
+            </li>
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe8d3;</i>
+                <a class="mdui-list-item-content" onclick="ShowPeopleSettingsPage()">人员设置</a>
+            </li>
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe8f6;</i>
+                <a class="mdui-list-item-content" onclick="ShowAwardSettingsPage()">奖项设置</a>
+            </li>
+            <!--li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe838;</i>
+                <a class="mdui-list-item-content" href="#" >高级设置</a>
+            </li-->
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe22b;</i>
+                <a class="mdui-list-item-content" onclick="ShowActivityPage()">活动管理</a>
+            </li>
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe5d0;</i>
+                <a class="mdui-list-item-content" onclick="ShowLargeScreenLotteryPage()">大屏幕抽奖</a>
+            </li>
+            <!--li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe01d;</i>
+                <a class="mdui-list-item-content" href="statistics.html">实时统计</a>
+            </li-->
+            <li class="mdui-subheader">个人中心</li>
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe7fd;</i>
+                <a class="mdui-list-item-content" onclick="ShowAccountCenterPage()">我的账户</a>
+            </li>
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe879;</i>
+                <a class="mdui-list-item-content" href="/lotteryLogout">退出账号</a>
+            </li>
+        </ul>
+    </div>
+    <!--BASIC SETTINGS PAGE-->
+    <div id="basic-settings-page" style="display: block;">
+        <div>
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <label class="mdui-textfield-label">活动名称</label>
+                <input class="mdui-textfield-input" type="text" id="activ-name" value="东北大学百年校庆"/>
+            </div>
+
+            <!--时间横线-->
+            <div class="mdui-row">
+                <div class="mdui-textfield mdui-col-xs-6">
+
+                    <input class="mdui-textfield-input" type="text" disabled placeholder="活动开始时间" id="startTimeBox"/>
+                </div>
+                <div class="mdui-textfield mdui-col-xs-6">
+                    <input class="mdui-textfield-input" type="text" disabled placeholder="活动结束时间" id="endTimeBox"/>
+                </div>
+            </div>
+            <!--时间选择器-->
+            <div class="mdui-row">
+                <div class="mdui-col-xs-6">
+                    <i class="mdui-icon material-icons">&#xe190;</i>
+                    选择活动开始时间：
+                    <input type="datetime-local" id="startTimePicker" onchange="GetTimefromStartTimePicker()">
+                </div>
+                <div class="mdui-col-xs-6">
+                    <i class="mdui-icon material-icons">&#xe190;</i>
+                    选择活动结束时间：
+                    <input type="datetime-local" id="endTimePicker" onchange="GetTimefromEndTimePicker()">
+                </div>
+            </div>
+
+            <!--抽奖方式选择按钮-->
+            <div>
+                <div class="mdui-row"><br><br>
+                    <div class="mdui-col-xs-3 mdui-col-sm-3" style="margin-top: 10px;">抽奖方式：</div>
+                    <form>
+                        <div class="mdui-col-xs-5 mdui-col-sm-3">
+                            <label class="mdui-radio">
+                                <input type="radio" name="group1" checked/>
+                                <i class="mdui-radio-icon"></i>
+                                大屏幕抽奖
+                            </label>
+                        </div>
+
+                        <div class="mdui-col-xs-4 mdui-col-sm-4">
+                            <label class="mdui-radio">
+                                <input type="radio" name="group1"/>
+                                <i class="mdui-radio-icon"></i>
+                                终端抽奖
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div><br>
+
+            <fieldset id="screen-lottery">
+                <legend>用户终端抽奖</legend>
+                <!--选择抽奖场景-->
+                <div class="mdui-row">
+                    <div class="mdui-col-xs-8 mdui-col-sm-10">
+                        <div class="mdui-textfield">
+                            <input class="mdui-textfield-input" type="text" disabled id="selectPeopleBox"  placeholder="离线抽奖场景选择"/>
+                        </div>
+                    </div>
+                    <div class="mdui-col-xs-4 mdui-col-sm-2" style="margin-top:14px; text-align:center;">
+                        <select class="mdui-select" mdui-select id="select_people" onchange="selectPeople()">
+                            <option value="1">滚动名片</option>
+                            <option value="2">3D球体</option>
+                            <option value="3">滚动数字</option>
+                            <option value="4">翻牌子</option>
+                        </select>
+                    </div>
+                </div><br>
+
+                <!--选择大屏幕风格-->
+                <div class="mdui-row">
+                    <div class="mdui-col-xs-3 mdui-col-sm-2" style="color:gray; margin-top:9px;">
+                        屏幕风格:
+                    </div>
+                    <form>
+                        <div class="mdui-col-xs-4 mdui-col-sm-3">
+                            <label class="mdui-radio">
+                                <input type="radio" name="style-group" onclick="ShowDemoPct()" checked/>
+                                <i class="mdui-radio-icon"></i>
+                                默认
+                            </label>
+                        </div>
+                        <div class="mdui-col-xs-5 mdui-col-sm-3">
+                            <label class="mdui-radio">
+                                <input type="radio" name="style-group" onclick="CheckVip()"/>
+                                <i class="mdui-radio-icon"></i>
+                                自定义 <span style="color:#FFCC00">[VIP]</span>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="mdui-row" id="select-style">
+                    <div class="mdui-col-xs-0 mdui-col-sm-2"></div>
+                    <div class="mdui-col-xs-12 mdui-col-sm-8" style="text-align:cente;" id="pct-area">
+                        <ul id="bg-list" style="list-style:none;">
+                            <li style="float:left; margin: 5px;">
+                                <img src="/images/lottery/AnnualMeeting.jpg" width="70" height="70" alt="年会素材" />
+                            </li>
+                            <li style="float:left; margin: 5px;">
+                                <img src="/images/lottery/sunset2.jpeg" width="70" height="70" alt="风景素材"/>
+                            </li>
+                            <li style="float:left; margin: 5px;">
+                                <img src="/images/lottery/sunset.jpeg" width="70" height="70" alt="风景素材"/>
+                            </li>
+                            <li style="float:left; margin: 5px;">
+                                <img src="/images/lottery/planet.jpeg" width="70" height="70" alt="科幻素材"/>
+                            </li>
+                            <li style="float:left; margin: 5px;">
+                                <img src="/images/lottery/sky.png" width="70" height="70" alt="清新素材" />
+                            </li>
+                            <li style="float:left; margin: 5px;">
+                                <img src="/images/lottery/purple.jpg" width="70" height="70" alt="纯色素材" />
+                            </li>
+                        </ul>
+                        <div class="mdui-row" style="display:none;" id="upload-bg">
+                            <div class="mdui-col-xs-4 mdui-col-sm-2">
+                                <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-blue-accent" id="uploadbkg" onclick="UploadBkg()">
+                                    上传
+                                </button>
+                            </div>
+                            <div class="mdui-col-xs-8 mdui-col-sm-10" style="color:gray;margin-top:6px;">
+                                要求尺寸：1920*1080像素，格式为jpg或png，文件大小不得超于2M。
+                            </div>
+                            <form id="upload-pct" action="">
+                                <input type="file" id="upload-background" style="display: none"/>
+                            </form>
+                        </div>
+                    </div>
+                    <!--会员充值弹窗-->
+                    <button class="mdui-btn mdui-color-theme-accent mdui-ripple" style="display: none" id="testbtn" mdui-dialog="{target: '#vip-attention'}">open</button>
+
+                    <div class="mdui-dialog" id="vip-attention">
+                        <div class="mdui-dialog-content">该功能仅限VIP用户使用，您是否要开通会员？</div>
+                        <div class="mdui-dialog-actions">
+                            <button class="mdui-btn mdui-ripple" mdui-dialog-close>开通会员</button>
+                            <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>取消</button>
+                        </div>
+                    </div>
+                </div>
+                <!--抽奖限制-->
+                <div class="mdui-row">
+                    <div class="mdui-col-xs-3 mdui-col-sm-2" style="margin-top:22px; color:gray;">抽奖限制:</div>
+                    <ul class="mdui-col-xs-9 mdui-col-sm-10" style="list-style:none;">
+                        <li><label class="mdui-radio">
+                            <input type="radio" name="lottery-limit" checked/>
+                            <i class="mdui-radio-icon"></i>
+                            扫码参与抽奖
+                        </label></li>
+                        <li><label class="mdui-radio">
+                            <input type="radio" name="lottery-limit"/>
+                            <i class="mdui-radio-icon"></i>
+                            按名单参与抽奖
+                        </label></li>
+                    </ul>
+                </div>
+
+                <div id="sound-settings">
+                    <div class="mdui-row">
+                        <div class="mdui-col-xs-3 mdui-col-sm-2" style="color:gray; text-align: left; margin-top: 8px;">抽奖音效:</div>
+                        <div class="mdui-col-xs-9 mdui-col-sm-10" id="is-need-sound">
+                            <form action="">
+                                <label class="mdui-checkbox">
+                                    <input type="checkbox" checked/>
+                                    <i class="mdui-checkbox-icon"></i>
+                                    开启
+                                </label>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="mdui-table-fluid mdui-col-xs-12 mdui-col-sm-12" id="select-music">
+                        <table class="mdui-table">
+                            <tbody>
+                            <tr>
+                                <td>活动开始</td>
+                                <td>默认1.mp3</td>
+                                <td><button class="mdui-btn mdui-btn-raised mdui-ripple">自定义</button></td>
+                            </tr>
+                            <tr>
+                                <td>抽奖过程</td>
+                                <td>默认2.mp3</td>
+                                <td><button class="mdui-btn mdui-btn-raised mdui-ripple">自定义</button></td>
+                            </tr>
+                            <tr>
+                                <td>开奖瞬间</td>
+                                <td>默认3.mp3</td>
+                                <td><button class="mdui-btn mdui-btn-raised mdui-ripple">自定义</button></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mdui-col-xs-6" style="text-align:right; margin-top: 12px;">
+                        <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-indigo-accent">活动预览</button>
+                    </div>
+                    <div class="mdui-col-xs-6" style="text-align:left; margin-top: 12px;">
+                        <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">保存设置</button>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!--用户终端抽奖模式-->
+            <fieldset id="personal-lottery" style="display:none;">
+                <legend>用户终端抽奖</legend>
+                <div class="mdui-row">
+                    <div class="mdui-col-xs-8 mdui-col-sm-10">
+                        <div class="mdui-textfield">
+                            <input class="mdui-textfield-input" type="text" disabled id="selectPrizeBox" placeholder="在线抽奖场景选择"/>
+                        </div>
+                    </div>
+                    <div class="mdui-col-xs-4 mdui-col-sm-2" style="margin-top:18px; text-align: center;">
+                        <select class="mdui-select" mdui-select id="select_prize" onchange="selectPrize()">
+                            <option value="1">刮奖</option>
+                            <option value="2">转盘</option>
+                            <option value="3">猜方格</option>
+                            <option value="4">翻牌</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+        </div>
+        <!--抽奖-->
+
+    </div><!--END OF BASIC SETTINGS PAGE-->
+    <!--AWARD SETTINGS PAGE-->
+    <div id="award-settings-page" class="mdui-container" style="display:none;">
+        <!--标题-->
+        <div class="mdui-row">
+            <br>
+            <div class="mdui-col-xs-5 mdui-col-sm-7">
+                <div style="color:gray;font-size:24;">奖项设置</div>
+            </div>
+            <div class="mdui-col-xs-2 mdui-col-sm-1" style="text-align:center;">
+                <button class="mdui-fab mdui-fab-mini mdui-color-theme-accent mdui-ripple" onclick="AddItems()"><i class="mdui-icon material-icons">add</i></button>
+            </div>
+            <div class="mdui-col-xs-2 mdui-col-sm-1" style="text-align:center;">
+                <button class="mdui-fab mdui-fab-mini mdui-color-theme-accent mdui-ripple" onclick="CutItem()"><i class="mdui-icon material-icons">content_cut</i></button>
+            </div>
+            <div class="mdui-col-xs-3 mdui-col-sm-3" style="text-align:center;">
+                <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent" onclick="SavePeopleSettings()">保存设置</button>
+            </div>
+        </div>
+
+        <br><div class="mdui-divider"></div><br><!--分割线-->
+
+        <!--奖项设置区-->
+        <div id="prize-settings-area">
+            <div class="mdui-row-xs-4" id="item1">
+                <div class="mdui-col">
+                    <input id="award-name1" class="mdui-textfield-input" value="一等奖" type="text" placeholder="奖项名称" required/></div>
+                <div class="mdui-col">
+                    <input id="prize-name1" class="mdui-textfield-input" value="苹果一个" type="text" placeholder="奖品名称"/></div>
+                <div class="mdui-col">
+                    <input id="prize-num1" class="mdui-textfield-input"  value="3" type="text" placeholder="奖品数量" required/></div>
+                <div class="mdui-col">
+                    <input id="winning-rate1" class="mdui-textfield-input" type="text" placeholder="中奖概率" disabled/></div>
+            </div><br>
+
+            <div class="mdui-row-xs-4" id="item2">
+                <div class="mdui-col">
+                    <input id="award-name2" class="mdui-textfield-input" type="text"  value="二等奖" placeholder="奖项名称" required/></div>
+                <div class="mdui-col">
+                    <input id="prize-name2" class="mdui-textfield-input" type="text"  value="橘子一个" placeholder="奖品名称"/></div>
+                <div class="mdui-col">
+                    <input id="prize-num2" class="mdui-textfield-input" type="text"  value="5" placeholder="奖品数量" required/></div>
+                <div class="mdui-col">
+                    <input id="winning-rate2" class="mdui-textfield-input" type="text" placeholder="中奖概率" disabled/></div>
+            </div><br>
+
+            <div class="mdui-row-xs-4" id="item3">
+                <div class="mdui-col">
+                    <input id="award-name3" class="mdui-textfield-input" type="text"  value="三等奖" placeholder="奖项名称" required/></div>
+                <div class="mdui-col">
+                    <input id="prize-name3" class="mdui-textfield-input" type="text"  value="樱桃一个" placeholder="奖品名称"/></div>
+                <div class="mdui-col">
+                    <input id="prize-num3" class="mdui-textfield-input" type="text"  value="10" placeholder="奖品数量" required/></div>
+                <div class="mdui-col">
+                    <input id="winning-rate3" class="mdui-textfield-input" type="text" placeholder="中奖概率" disabled/></div>
+            </div>
+        </div>
+    </div><!--END OF AWARD SETTINGS PAGE-->
+    <!--PEOPLE SETTINGS PAGE-->
+    <div id="people-settings-page" style="display:none;">
+        <br>
+        <div id="participants-num">
+            <div style="text-align:left; color:gray; font-size:18;">
+                参与人数
+            </div><br>
+            <div class="mdui-divider"></div>
+            <div class="mdui-row">
+                <form>
+                    <div class="mdui-col-xs-4 mdui-col-sm-3">
+                        <label class="mdui-radio">
+                            <input type="radio" id="unlimitted" name="isLimitted" onclick="UnLimitedPeople()"/>
+                            <i class="mdui-radio-icon"></i>
+                            不限制
+                        </label>
+                    </div>
+                    <div class="mdui-col-xs-8  mdui-col-sm-9">
+                        <label class="mdui-radio">
+                            <input type="radio" id="limitted" name="isLimitted" onclick="LimittedPeople()" checked/>
+                            <i class="mdui-radio-icon"></i>
+                            限制 (请输入参与人数)
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="mdui-textfield">
+                <input class="mdui-textfield-input" type="text" id="input-peoplenum" placeholder="参与人数"/>
+            </div>
+        </div>
+        <!--发布对象--><br>
+        <div id="publish-objects">
+            <div style="text-align:left; color:gray; font-size:18;">
+                发布对象
+            </div><br>
+            <div class="mdui-divider"></div>
+            <div class="mdui-row">
+                <form>
+                    <div class="mdui-col-xs-4 mdui-col-sm-3">
+                        <label class="mdui-radio">
+                            <input type="radio" id="all-people" name="active-object" onclick="AllPeople()"/>
+                            <i class="mdui-radio-icon"></i>
+                            所有人
+                        </label>
+                    </div>
+                    <div class="mdui-col-xs-8  mdui-col-sm-9">
+                        <label class="mdui-radio">
+                            <input type="radio" id="specific-people" name="active-object" onclick="SpecificObject()" checked/>
+                            <i class="mdui-radio-icon"></i>
+                            特定对象 (请上传人员名单)
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--人员名单--><br>
+        <div id="name-list">
+            <div style="text-align:left; color:gray; font-size:18;">
+                人员设置
+            </div><br>
+            <div class="mdui-divider"></div><br>
+            <div class="mdui-row">
+                <div class="mdui-col-xs-4 mdui-col-sm-3">
+                    <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-blue-accent" id="uploadbtn" onclick="UploadList()">导入名单</button>
+                    <form id="import-list" action="">
+                        <input type="file" id="upload" style="display: none" onchange="sendfile(this)"/>
+                    </form>
+                </div>
+                <div class="mdui-col-xs-4 mdui-col-sm-3">
+                    <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-green-accent" id="downloadbtn" onclick="DownloadList()">下载模板</button>
+                </div>
+                <div class="mdui-col-xs-4 mdui-col-sm-6" align="right">
+                    <button class="mdui-fab mdui-fab-mini mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons" onclick="ClearList()">delete</i></button>
+                </div>
+            </div>
+            <div id="name-list-area"></div>
+        </div>
+    </div><!--END OF PEOPLE SETTINGS PAGE-->
+
+    <!--PRIZE PAGE-->
+    <div class="content" style="height: 5000px; display: none;" id="activity-page">
+        <div class="row">
+            #foreach($act in $activity)
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        $date.format('yyyy-MM-dd', $act.startDate)
+                    </div>
+                    <div class="card-body">
+                        活动编号：<a href="/activity/$!{act.actId}">$!{act.actId}</a>
+                    </div>
+                    <div class="card-footer bg-light">
+                        <a href="/activity/$!{act.actId}">$!{act.actDescribe}</a>
+                    </div>
+                </div>
+            </div>
+            #end
+        </div>
+    </div><!--END OF PRIZE PAGE-->
+
+    <!--LARGE SCREEN LOTTERY PAGE-->
+    <div id="large-screen-lottery-page" style="display: none;">
+        <div>
+            <div class="mdui-row">
+                <br>
+                <div class="mdui-col-xs-10">
+                    <div style="color:gray;font-size:24;">大屏幕抽奖</div>
+                </div>
+            </div><br>
+            <div class="mdui-divider"></div><!--分割线-->
+        </div><br>
+        <div class="mdui-row">
+            <div class="mdui-col-xs-8 mdui-col-sm-4">
+                <div style="color:gray; font-size: 18;text-align: left;">
+                    您选择的场景模式为：
+                </div>
+            </div>
+            <div class="mdui-col-xs-4 mdui-col-sm-4">
+                <div style="color:gray; font-size: 18;text-align: left;">
+                    滚动名片
+                </div>
+            </div>
+
+        </div>
+        <div class="mdui-row">
+            <br><br><br>
+            <div class="mdui-col-xs-10">
+                <div style="color:gray;font-size:24;">活动说明</div>
+            </div>
+        </div><br>
+        <div class="mdui-divider"></div><!--分割线--><br>
+        <div style="color:gray;font-size:20;">
+            1.dbjwbdjbwqjbdjBJWQBDKkwqdbjBDBDKBWDQ<br>
+            2.dbjwbdkjbwjdbjbwjkblbfuwewiuehiuwhwh<br>
+            ……<br>
+        </div><br><br>
+        <div class="mdui-row-xs-12" style="text-align:center;">
+            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent" onclick="startOfflineLottery()">开始抽奖</button>
+        </div>
+    </div><!--END OF LARGE SCREEN LOTTERY PAGE-->
+    <!--ACCOUNT CENTER PAGE-->
+    <div id="account-center-page" style="display: none;">
+        <br>
+        <div id="head" class="mdui-row">
+            <div id="head-picture" class=" mdui-col-xs-12 mdui-col-sm-8" align="center">
+                <img class="mdui-img-circle" style="width: 200px; height: 200px;" src="/images/lottery/head.jpg"/>
+            </div>
+        </div><br>
+        <div id="username-line" class="mdui-row">
+            <div style="color:gray; font-size:18; margin-top: 24px; text-align: center;" class="mdui-col-xs-3 mdui-col-sm-2">
+                账户名:
+            </div>
+            <div class="mdui-textfield mdui-col-xs-7 mdui-col-sm-4">
+                <input id="username-box" class="mdui-textfield-input" type="text" value="LauXy" disabled/>
+            </div>
+        </div>
+        <div id="e-mail-line" class="mdui-row">
+            <div style="color:gray; font-size:18; margin-top: 24px; text-align: center;" class="mdui-col-xs-3 mdui-col-sm-2">
+                邮箱:
+            </div>
+            <div class="mdui-textfield mdui-col-xs-7 mdui-col-sm-4">
+                <input class="mdui-textfield-input" type="text" id="e-mail-box" value="xueyuan98@foxmail.com" disabled/>
+            </div>
+        </div>
+        <div id="authority-line" class="mdui-row">
+            <div style="color:gray; font-size:18; margin-top: 24px; text-align: center;" class="mdui-col-xs-3 mdui-col-sm-2">
+                权限:
+            </div>
+            <div class="mdui-textfield mdui-col-xs-7 mdui-col-sm-4">
+                <input class="mdui-textfield-input" type="text" value="活动管理员" disabled/>
+            </div>
+        </div>
+        <div id="company-line" class="mdui-row">
+            <div style="color:gray; font-size:18; margin-top: 24px; text-align: center;" class="mdui-col-xs-3 mdui-col-sm-2">
+                公司:
+            </div>
+            <div class="mdui-textfield mdui-col-xs-7 mdui-col-sm-4">
+                <input id="company-box" class="mdui-textfield-input" type="text" value="东北大学(NEU)" disabled/>
+            </div>
+        </div>
+        <div id="company-line" class="mdui-row">
+            <div style="color:gray; font-size:18; margin-top: 24px; text-align: center;" class="mdui-col-xs-3 mdui-col-sm-2">
+                会员:
+            </div>
+            <div class="mdui-textfield mdui-col-xs-7 mdui-col-sm-4">
+                <input class="mdui-textfield-input" type="text" value="企业增强版VIP" disabled/>
+            </div>
+        </div>
+
+        <!--Live2D-->
+        <!--div class="waifu">
+            <div class="waifu-tips"></div>
+            <canvas id="live2d" width="280" height="300" class="live2d"></canvas>
+            <div class="waifu-tool">
+                <span class="fui-chat"></span>
+                <span class="fui-eye"></span>
+                <span class="fui-user"></span>
+                <span class="fui-photo"></span>
+                <span class="fui-cross"></span>
+            </div>
+        </div>
+        <script src="./scripts/main/site/lottery/waifu-tips.js"></script>
+        <script src="./scripts/main/site/lottery/live2d.js"></script>
+        <script type="text/javascript">initModel("assets/")</script-->
+    </div><!--END OF ACCOUNT CENTER PAGE-->
+</div>
+
+</body>
+</html>

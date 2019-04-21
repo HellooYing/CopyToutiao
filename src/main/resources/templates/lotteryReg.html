@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Carbon - Admin Template</title>
+    <link rel="stylesheet" href="/styles/lottery/simple-line-icons.css">
+    <link rel="stylesheet" href="/styles/font-awesome.min.css">
+    <link rel="stylesheet" href="/styles/lottery/loginStyle.css">
+    <script src="/scripts/main/site/lottery/login.js"></script>
+    <script src="/scripts/jquery.js"></script>
+    <script>
+        function signup(){
+            $.ajax({
+                url : "/reg",
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    username: document.getElementById('usrname').value,
+                    password: document.getElementById('passwd').value
+                }
+            }).done(function(data) {
+                if(data.code='0'){
+                    window.location.href="/userPage/";
+                }
+                else alert(data.map);
+            });
+
+        }
+    </script>
+</head>
+<body>
+<div class="page-wrapper flex-row align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card p-4">
+                    <div class="card-header text-center text-uppercase h4 font-weight-light">
+                                                                          注册
+                    </div>
+
+                    <div class="card-body py-5">
+                        <div class="form-group">
+                            <label class="form-control-label"><i class="fa fa-user"></i>用户名</label>
+                            <input type="name" class="form-control" id="usrname" placeholder="请设置用户名">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label"><i class="fa fa-lock"></i>密码</label>
+                            <input type="password" class="form-control" id="passwd" placeholder="请设置密码">
+                        </div>
+
+<!--                        <div class="form-group">-->
+<!--                            <label class="form-control-label"><i class="fa fa-lock"></i>确认密码</label>-->
+<!--                            <input type="password" class="form-control" id="passwd_re" placeholder="请确认密码">-->
+<!--                        </div>-->
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-success btn-block" onclick="signup()">创建用户</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/scripts/main/site/lottery/popper.min.js"></script>
+<script src="/scripts/main/site/lottery/bootstrap.min.js"></script>
+<script src="/scripts/main/site/lottery/chart.min.js"></script>
+<script src="/scripts/main/site/lottery/carbon.js"></script>
+<script src="/scripts/main/site/lottery/demo.js"></script>
+</body>
+</html>

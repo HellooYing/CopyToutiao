@@ -1,0 +1,167 @@
+ body,html {
+            height: 100%;
+        }
+        body {
+            background-color: rgba(0, 0, 0, 0.0);
+            margin: 0;
+            font-family: Helvetica, sans-serif;
+        }
+        
+        #container {
+            height: 100%;
+            width: 100%;
+            background: rgba(0,0,0,0.0);
+            background-size: 100% 100%;
+			z-index: 2;
+			padding: 0px;
+        }
+
+        .fly-element {
+            width: 12px;
+            height: 7px;
+            box-shadow: 0px 0px 12px rgba(255,68,71,0.67);
+            text-align: center;
+            cursor: default;
+            
+            background-size: 100% 100%;
+            transform: rotate(180deg);
+        }
+        
+        .element,
+        .wins {
+            width: 120px;
+            height: 160px;
+            box-shadow: 0px 0px 12px rgba(255,68,71,0.67);
+            border: 1px solid rgba(255, 0, 0, 0.45);
+            text-align: center;
+            cursor: default;
+            transform-style: preserve-3d;
+        }
+        
+        .wins {
+            opacity: 0;
+            z-index: 9;
+            position: absolute;
+            top: calc(50% - 80px);
+            left: calc(50% - 60px);
+            transform: scale(1);
+        }
+        
+        .element>.front,
+        .wins>.front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        
+        .element>.back,
+        .wins>.back {
+            width: 100%;
+            height: 100%;
+			background-size: 100% 100%;
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+        }
+        
+        .element p,
+        .wins p {
+            color: #8cb513;
+            font-family: '楷体';
+            font-size: 30px;
+            font-style: italic;
+            text-align: center;
+            height: 100%;
+            width: 100%;
+            font-weight: 900;
+            writing-mode: vertical-lr;
+        }
+		#ctrSection{
+			
+			height: 40px;
+			width: 100%;
+			background: rgba(255,255,255,0.0);
+			margin-top: 10;
+			z-index: 20;
+			position: absolute;
+			
+		}
+.m_button{
+	height: 40px;
+	width: 111px;
+	border: 0px;
+	text-align: center;
+    background: #332E2E;
+}
+.m_button:hover{
+	background: green;
+}
+#m_canvas{
+	background: rgba(0,0,0,1.00);
+	width: 100%;
+	margin: 0px;
+	z-index: -1;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+/*弹幕的功能*/
+	#reply-write{
+		display: block;
+		width: 100%;
+		border: none;
+		font-size: 1em;
+		line-height: 20px;
+		margin: 0;
+		padding: 0.3em;
+		resize: none;
+		font-family: inherit;
+		color: inherit;
+		box-sizing: border-box;
+		border:1px solid #FE0002;
+		border-radius:4px 0 0 4px;
+	}
+	.send-btn {
+		float: left;
+	}
+	#conts p{
+		display:inline-block;
+		padding:3px 0px 3px 0px;
+		margin:0px;
+	}
+
+	.dm .d_screen 
+	.d_del{width:38px;height:38px;background:#600;display:block;text-align:center;line-height:38px;
+		   text-decoration:none;font-size:20px;color:#fff;border-radius:19px;border:1px solid #fff;position:absolute;top:10px;right:20px;z-index:3;display:none;}
+	.dm .d_screen .d_del:hover{background:#f00;}
+	.dm .d_screen .d_mask{width:255px;height:200px;position:absolute;top:0;left:0;opacity:0.5;
+						  filter:alpha(opacity=50) ;z-index:1;}
+	.dm .d_screen .d_show{position: relative;z-index:2;}
+	.dm .d_screen .d_show div{color:#fff; background:rgba(1,1,1,.4);border-radius:5px; margin:5px; }
+	#showmeg p{
+		font-weight:bold;
+		text-align:center;
+	}
+	.d_show div{
+		width:230px;font-size:12px;color:#fff; line-height:20px;
+	}
+	.d_show img{width:20px; height:20px;border-radius:50%; padding:2px;}
+	.d_show p{
+		text-overflow:ellipsis	;
+	}
+.NYwishes{width:255px; height:300px; position:fixed; bottom:0; right:0; background:rgba(0,0,0,.6); z-index: 4;display: none}
+.NYwishes h2{ margin:5px 0; font-family:"微软雅黑"; font-size:18px; text-align:center; color:#fff;}
+.NYwishes .swiper-container{ height:250px;}
+#conts{margin:0 auto ;padding-left:2%;padding-right:2%;height:280px;}
+.NYwishes .send{position: absolute;left:0%;bottom:0px;height:40px;width:100%;z-index:99999;}
+.NYwishes .send .input{width:155px;;float:left;margin-left:5%;}
+.NYwishes .send-btn a{background-color:#FE0000;color:#fff;width:80px;height:30px;display: inline-block;text-align: center;line-height:30px;cursor:pointer; border-radius:0 4px 4px 0;}
+.m_prize {
+	margin-top: 4%;
+	z-index: 5;
+	padding: 0;
+	background: #1D1D1D;
+	position: absolute;
+	float: left;
+	color: darkgrey;
+}

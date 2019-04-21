@@ -1,0 +1,93 @@
+/* --------------------------------------
+
+Color Name: blue
+Color Code : #22a7f0
+
+----------------------------------------- */
+.color-background-second {
+  background-color: #22a7f0;
+}
+.line {
+  background: #22a7f0; 
+}
+
+.line-two {
+  background: #ffffff;
+}
+strong {
+    color: #22a7f0;
+}
+.colored-text {
+  color: #22a7f0 !important; }
+
+.color-background {
+  background: #1B1B1B;; }
+
+a {
+  color: #22a7f0; }
+
+.navbar-toggle {
+  border: none !important;
+  background-color: #22a7f0 !important; }
+
+.navbar-toggle:hover {
+  background-color: #22a7f0 !important; }
+
+.non-sticky .navbar-nav > li > a:hover {
+  color: #22a7f0; }
+
+.standard-button {
+  background:  #22a7f0;
+  border: 1px solid #fff !important;
+  border-radius: 1px !important;
+}
+
+.standard-button:hover {
+  opacity: 0.8; }
+
+.secondary-button:hover {
+  opacity: 0.8; }
+
+.sticky-navigation .main-navigation .current a {
+  color: #22a7f0 !important;
+  border-color: #22a7f0 !important; }
+
+.sticky-navigation .navbar-nav > li > a:hover {
+  color: #22a7f0; }
+
+.feature-list li .icon-custom {
+  background:  #22a7f0;
+  border: 1px solid  #fff; 
+}
+.feature-list li .icon-custom2 {
+  background:  black;
+  border: 1px solid  #fff; 
+}
+.feature {
+    
+}
+.feature .icon {
+  color: #22a7f0;
+  border: 2px solid #22a7f0; }
+.package {
+    border-top: 3px solid  #fff;
+}
+.package-center {
+    border-top: 3px solid #fff;
+}
+.input-box:active,
+.textarea-box:active,
+.input-box:focus,
+.textarea-box:focus {
+  border-left: 2px solid #22a7f0 !important; }
+
+.portfolio .owl-theme .owl-controls .owl-page span {
+  background: #fff; }
+.social-icons li a {
+    background-color: #22a7f0;
+    padding: 2px 5px;
+}
+.social-icons li a:hover {
+  color: #ffffff; }
+
+/*# sourceMappingURL=alizarin.css.map */
