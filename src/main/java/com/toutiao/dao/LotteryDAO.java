@@ -37,15 +37,10 @@ public interface LotteryDAO {
     Activity selectActivityById(@Param("actId")int actId);
 
     //增加活动(恐怖的字段)
-    @Insert("insert into activity("+INSERT_FIELDS+") " +
-            "values(#{adminId}, #{startDate}, #{endDate}, #{actDescribe}," +
-            "#{prizeNameOne}, #{prizeNameTwo}, #{prizeNameThree}, #{awardNameOne}, #{awardNameTwo}, #{awardNameThree}," +
-            "#{awardCountOne}, #{awardCountTwo}, #{awardCountThree}, #{prizeRateOne}, #{prizeRateTwo}, #{prizeRateThree})")
-    @SelectKey(statement="select LAST_INSERT_ID()", keyProperty="actId", before=false, resultType=int.class)
     int addActivity(Activity activity);
 
     //记录参与情况(导入人员信息时)
-    @Insert("insert into join_in(user_id, act_id, result) values(#{userID},#{actId},#{result})")
+    @Insert("insert into join_in(user_id, act_id, result) values(#{userId},#{actId},#{result})")
     int addJoinIn(JoinIn joinIn);
 
     //更新中奖结果(根据用户ID和活动ID)

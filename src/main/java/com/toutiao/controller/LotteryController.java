@@ -205,8 +205,8 @@ public class LotteryController {
         activity.setAwardNameThree(thirdAwardName);
         activity.setAwardCountThree(thirdPrizeAmount);
         activity.setPrizeRateThree(thirdPrizeProbability);
-        int actId=lotteryService.addActivity(activity);
-        //根据userList格式split然后join_in
+        lotteryService.addActivity(activity);
+        int actId=activity.getActId();
         for(int i:userList){
             JoinIn joinIn=new JoinIn();
             joinIn.setActId(actId);

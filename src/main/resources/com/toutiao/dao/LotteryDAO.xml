@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.toutiao.dao.LotteryDAO">
+    <sql id="table">activity</sql>
+    <sql id="insertFields">
+admin_id,start_date,end_date,act_describe,prize_name_one,prize_name_two ,prize_name_three,award_name_one,award_name_two,award_name_three,award_count_one,award_count_two,award_count_three,prize_rate_one,prize_rate_two, prize_rate_three
+    </sql>
+    <insert id="addActivity">
+        insert into
+        <include refid="table"/>
+        (<include refid="insertFields"/>)
+        values (
+        #{adminId}, #{startDate}, #{endDate}, #{actDescribe},
+        #{prizeNameOne}, #{prizeNameTwo}, #{prizeNameThree},
+        #{awardNameOne}, #{awardNameTwo}, #{awardNameThree},
+        #{awardCountOne}, #{awardCountTwo}, #{awardCountThree},
+        #{prizeRateOne}, #{prizeRateTwo}, #{prizeRateThree}
+        )
+        <selectKey keyColumn="act_id" keyProperty="actId" order="AFTER" resultType="int">
+        select last_insert_id()
+       </selectKey>
+    </insert>
+</mapper>
