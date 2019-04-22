@@ -13,11 +13,11 @@ public interface LotteryDAO {
     String SELECT_FIELDS = " act_id, "+INSERT_FIELDS;
 
     //根据userid，获取activity[]
-    @Select("select a.act_id,a.admin_id,a.start_date,a.end_date,a.act_describe,a.prize_name_one,a.prize_name_two ,a.prize_name_three,a.award_name_one,a.award_name_two,a.award_name_three,a.award_count_one,a.award_count_two,a.award_count_three,a.prize_rate_one,a.prize_rate_two, a.prize_rate_three from (select act_id from join_in where user_id =#{userId})b left join activity as a on a.act_id = b.act_id")
+    @Select("select a.act_id,a.admin_id,a.start_date,a.end_date,a.act_describe,a.prize_name_one,a.prize_name_two ,a.prize_name_three,a.award_name_one,a.award_name_two,a.award_name_three,a.award_count_one,a.award_count_two,a.award_count_three,a.prize_rate_one,a.prize_rate_two, a.prize_rate_three from (select act_id from join_in where user_id =#{userId})b left join activity as a on a.act_id = b.act_id order by start_date desc")
     List<Activity> selectActivityByUserId(@Param("userId")int userId);
 
     //根据adminid，获取activity[]
-    @Select("select "+SELECT_FIELDS+" from activity where admin_id = #{adminId}")
+    @Select("select "+SELECT_FIELDS+" from activity where admin_id = #{adminId} order by start_date desc")
     List<Activity> selectActivityByAdminId(@Param("adminId")int adminId);
 
     //根据活动id和用户id获取中奖结果
@@ -29,11 +29,11 @@ public interface LotteryDAO {
     List<JoinIn> selectResultByActivityId(@Param("actId")int actId);
 
     //根据用户id获取该用户全部中奖结果
-    @Select("select * from join_in where user_id = #{userId}")
+    @Select("select * from join_in where user_id = #{userId} order by act_id desc")
     List<JoinIn> selectResultByUserId(@Param("userId")int userId);
 
     //根据活动id获取活动
-    @Select("select * from activity where act_id = #{actId}")
+    @Select("select * from activity where act_id = #{actId} order by start_date desc")
     Activity selectActivityById(@Param("actId")int actId);
 
     //增加活动(恐怖的字段)
