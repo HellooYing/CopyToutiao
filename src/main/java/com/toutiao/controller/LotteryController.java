@@ -47,22 +47,32 @@ public class LotteryController {
                           @RequestParam("prize") int prize
                           ){
         //找到join_in中的该条，结果改为prize。
-        //找到该活动，prize级结果-1，重新计算中奖率，写入，并返回
+        //找到该活动，prize级结果-1，如果之前有别的中奖奖品归还，返回
         int user_id=hostHolder.getUser().getId();
+        int lastResult=lotteryService.getResultByActivityIdAndUserId(user_id,actId);
         lotteryService.setResult(user_id,actId,prize);
         Activity activity = lotteryService.getActivityById(actId);
+        if(lastResult!=0){
+            if(lastResult==1) {
+                activity.setAwardCountOne(activity.getAwardCountOne()+1);
+            }
+            if(lastResult==2) {
+                activity.setAwardCountTwo(activity.getAwardCountTwo()+1);
+            }
+            if(lastResult==3) {
+                activity.setAwardCountThree(activity.getAwardCountThree()+1);
+            }
+        }
         if(prize==1){
             activity.setAwardCountOne(activity.getAwardCountOne()-1);
-            lotteryService.setAwardCountOne(actId,activity.getAwardCountOne());
         }
         else if(prize==2){
             activity.setAwardCountTwo(activity.getAwardCountTwo()-1);
-            lotteryService.setAwardCountTwo(actId,activity.getAwardCountTwo());
         }
         else if(prize==3){
             activity.setAwardCountThree(activity.getAwardCountThree()-1);
-            lotteryService.setAwardCountThree(actId,activity.getAwardCountThree());
         }
+        lotteryService.setAwardCount(actId,activity.getAwardCountOne(),activity.getAwardCountTwo(),activity.getAwardCountThree());
         JSONObject response=new JSONObject();
         response.put("code",0);
         response.put("firstPrizeAmount",String.valueOf(activity.getAwardCountOne()));
@@ -139,6 +149,7 @@ public class LotteryController {
 
     @RequestMapping(path = {"/userPage"}, method = {RequestMethod.GET})
     public String autoUserPage(Model model) {
+        if(hostHolder.getUser()==null) return "lotteryIndex";
         int userId = hostHolder.getUser().getId();
         if (userId == 13) return "redirect:/adminPage/13";
         return "redirect:/userPage/" + userId;
@@ -194,8 +205,15 @@ public class LotteryController {
         activity.setAwardNameThree(thirdAwardName);
         activity.setAwardCountThree(thirdPrizeAmount);
         activity.setPrizeRateThree(thirdPrizeProbability);
-        lotteryService.addActivity(activity);
+        int actId=lotteryService.addActivity(activity);
         //根据userList格式split然后join_in
+        for(int i:userList){
+            JoinIn joinIn=new JoinIn();
+            joinIn.setActId(actId);
+            joinIn.setResult(0);
+            joinIn.setUserId(i);
+            lotteryService.addJoinIn(joinIn);
+        }
         return ToutiaoUtil.getJSONString(0);
     }
 

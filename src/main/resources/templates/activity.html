@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>软件攻城部队在线抽奖现场</title>
+    <title>奖++在线抽奖现场</title>
     <link href="/styles/lottery/main3dstyle.css" rel="stylesheet" type="text/css">
     <link href="/styles/lottery/swiper.min.css" rel="stylesheet" type="text/css">
     <link href="/styles/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -14,7 +14,38 @@
 <body>
 <!--奖品进度显示模块-->
 <div class="container m_prize">
-    <div class="row clearfix">
+	<div class="row clearfix">
+		<div class="col-md-4 column">
+			<h3>
+				一等奖：<span id="m_p1">$!{activity.awardCountOne}</span>
+				<span id="prob1">$!{activity.prizeRateOne}</span>
+			</h3>
+			<div class="progress active progress-striped">
+				<div id = "m_ps1" class="progress-bar progress-success" style="width:100%;">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 column">
+			<h3>
+				二等奖：<span id="m_p2">$!{activity.awardCountTwo}</span>
+				<span id="prob2">$!{activity.prizeRateTwo}</span>
+			</h3>
+			<div class="progress progress-striped active">
+				<div id = "m_ps2" class="progress-bar progress-success" style="width:100%;">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 column">
+			<h3>
+				三等奖：<span id="m_p3">$!{activity.awardCountThree}</span>
+				<span id="prob3">$!{activity.prizeRateThree}</span>
+			</h3>
+			<div class="progress active progress-striped">
+				<div id = "m_ps3" class="progress-bar progress-success" style="width:100%;">
+				</div>
+			</div>
+		</div>
+	</div>
         <div class="col-md-4 column">
             <h3>
                 一等奖：<span id="m_p1"></span>

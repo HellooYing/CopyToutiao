@@ -52,12 +52,6 @@ public interface LotteryDAO {
     @Update("update join_in set result = #{result} where user_id = #{userId} and act_id = #{actId}")
     int updateResult(@Param("userId")int userId,@Param("actId")int actId,@Param("result")int result);
 
-    @Update("update activity set award_count_one = #{count} where act_id = #{actId}")
-    int updateAwardCountOne(@Param("actId")int actId,@Param("count")int count);
-
-    @Update("update activity set award_count_two = #{count} where act_id = #{actId}")
-    int updateAwardCountTwo(@Param("actId")int actId,@Param("count")int count);
-
-    @Update("update activity set award_count_three = #{count} where act_id = #{actId}")
-    int updateAwardCountThree(@Param("actId")int actId,@Param("count")int count);
+    @Update("update activity set award_count_one = #{countOne},award_count_two = #{countTwo},award_count_three = #{countThree} where act_id = #{actId}")
+    int updateAwardCount(@Param("actId")int actId,@Param("countOne")int countOne,@Param("countTwo")int countTwo,@Param("countThree")int countThree);
 }

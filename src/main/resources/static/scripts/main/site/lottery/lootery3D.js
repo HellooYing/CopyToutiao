@@ -2,9 +2,12 @@
 		var times=30;//抽奖次数
         var staffs = [];
         var wins = [];
-		var init_fp=10,init_sp=20,init_tp=30;//123等奖初始数量
-		var arrp = [0.1,0.3,0.4,0.2];//设置奖品及其中奖概率
-
+		var actId = window.location.href.split('/');
+   			actId = parseInt(actId[actId.length-1]);
+		var init_fp=100,
+			init_sp=100,
+			init_tp=100;//123等奖初始数量
+		var arrProbability = [0.2,0.3,0.4,0.1];//设置奖品及其中奖概率
         var rs, vi, ry;//三个参数   随意旋转，抖动效果，y轴旋转
         var camera, scene, renderer, controls;
         var objects = [];//对象
@@ -15,12 +18,55 @@
             grid: [],
             bang: [],
         };
+			//远程获取数据并不断更新奖品数量
+		var update=function(data){
+			if(data.code===0){
+    			document.getElementById("m_p1").innerText=data.firstPrizeAmount;
+    			document.getElementById("m_p2").innerText=data.secondPrizeAmount;
+				document.getElementById("m_p3").innerText=data.thirdPrizeAmount;
+				var fp_num=parseInt(data.firstPrizeAmount);
+				var sp_num=parseInt(data.secondPrizeAmount);
+				var tp_num=parseInt(data.thirdPrizeAmount);
+                document.getElementById("m_ps1").setAttribute("style","width:"+100*fp_num/init_fp+"%;");
+				document.getElementById("m_ps2").setAttribute("style","width:"+100*sp_num/init_sp+"%;");
+				document.getElementById("m_ps3").setAttribute("style","width:"+100*tp_num/init_tp+"%;");
+			}else{
+				alert(data.map);	
+			}
+		};
+		//初始化函数
+		(function(){
+			//初始化奖品信息
+			//init_fpparseInt(document.getElementById("m_p1").innerHTML);
+			//init_spparseInt(document.getElementById("m_p2").innerHTML);
+			//init_tpparseInt(document.getElementById("m_p3").innerHTML);
+			arrProbability[0]=parseFloat(document.getElementById("prob1").innerHTML);
+			arrProbability[1]=parseFloat(document.getElementById("prob2").innerHTML);
+			arrProbability[2]=parseFloat(document.getElementById("prob3").innerHTML);
+			setInterval(function(){
+				$.ajax({ url: "/activity/"+actId+"/refresh",
+						type: 'POST',
+						dataType: 'json'
+				}).done(function(data){
+					update(data);
+				});			
+			},3000);			
+		})();
+        //用户抽奖，如果中了奖，就触发事件：
+		function winning(prizeLevel){//奖级，奖品剩余数量及进度条信息
+            $.ajax({
+                url : "/activity/"+actId+"/winning",
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    prize:prizeLevel//抽中的几等奖
+                }
+            }).done(function(data) {
+				update(data);
+            });
+        }
         (function() {//主函数
-			//1、初始化奖品信息
-			document.getElementById("m_p1").innerHTML=init_fp;
-			document.getElementById("m_p2").innerHTML=init_sp;
-			document.getElementById("m_p3").innerHTML=init_tp;
-            //2、创建相机
+            //3、创建相机
             camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
             camera.position.z = 3000;
             //创建场景
@@ -184,7 +230,7 @@
 				return;
 			}
 			times--;
-			var prizeLevel=probability(arrp);
+			var prizeLevel=probability(arrProbability);
 			var chr;
 			var m_p;//当前奖项数量
 			var m_ps;//进度条的div
@@ -233,9 +279,8 @@
                 });
                 wins = [];//清空中奖者
 				if(m_p!==0){//更改当前奖品数量
-					var pNum = parseInt(m_p.innerHTML)-1;
-					m_p.innerText=pNum;
-					m_ps.setAttribute("style","width:"+100*pNum/ini+"%;")
+					//var pNum = parseInt(m_p.innerHTML)-1;m_p.innerText=pNum;m_ps.setAttribute("style","width:"+100*pNum/ini+"%;");
+					winning(prizeLevel);
 				}
                 clearTimeout(t);
             }, 2000);
@@ -408,19 +453,20 @@
 			let sum=0;
 			let flag=0;
 			for(var i=0;i<m_arr.length;i++){
-				sum+=m_arr[i];
+				sum+=m_arr[i];//概率数组之和
 			}
 			for(var i=0;i<m_arr;i++){
-				m_arr[i]=m_arr[i]/sum;
+				m_arr[i]=m_arr[i]/sum;//求实际概率
 			}
-			sum = 0;
-			var prob=randomNum(1,1000);
-			for(var i=0;i<m_arr.length;i++){
+			sum = 0;//sum 重置为零
+			var prob=randomNum(1,999);//生成1~1000的随机数
+			for(var i=0;i<m_arr.length;i++){//0~3等奖
 				sum+=m_arr[i];
 				flag = 1000*sum;
 				if(prob<flag)
 					return (i+1);
 			}
+			return 4;//避免意外
 		}
         //音乐设置
         var music = document.getElementById('m_music'),

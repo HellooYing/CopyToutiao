@@ -165,3 +165,6 @@
 	float: left;
 	color: darkgrey;
 }
+#prob1,#prob2,#prob3{
+	display: none;
+}

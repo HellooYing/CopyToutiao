@@ -58,16 +58,8 @@ public class LotteryService {
         //更新中奖结果(根据用户ID和活动ID)
         return lotteryDAO.updateResult(userId, actId, result);
     }
-    public int setAwardCountOne(int actId, int count){
-        //更新中奖结果(根据用户ID和活动ID)
-        return lotteryDAO.updateAwardCountOne(actId, count);
+    public int setAwardCount(int actId, int countOne,int countTwo,int countThree){
+        return lotteryDAO.updateAwardCount(actId, countOne,countTwo,countThree);
     }
-    public int setAwardCountTwo(int actId, int count){
-        //更新中奖结果(根据用户ID和活动ID)
-        return lotteryDAO.updateAwardCountTwo(actId, count);
-    }
-    public int setAwardCountThree(int actId, int count){
-        //更新中奖结果(根据用户ID和活动ID)
-        return lotteryDAO.updateAwardCountThree(actId, count);
-    }
+
 }
